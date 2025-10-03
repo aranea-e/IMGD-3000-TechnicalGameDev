@@ -7,9 +7,28 @@
 
 // Game Includes
 
+enum RoomType {
+	BL,
+	BM,
+	BR,
+	ML,
+	MM,
+	MR,
+	TL,
+	TM,
+	TR,
+};
+
 class Room : public df::Object {
 private:
+	df::Vector roomPos;	// Position in world, (0, 0) to (3, 3)
+
+	void init(std::string r_sprite_name, df::Vector r_pos = df::Vector(0,0));	// Initializes values
+
+	std::string RoomToString(RoomType r_type);	// Converts RoomType to string
+	RoomType PosToRoom(df::Vector r_pos);		// Gets RoomType for pos
+
 public:
-	Room();
-	Room(std::string r_sprite_name);
+	Room();					// Default constructor (0, 0)
+	Room(df::Vector r_pos);	// Position constructor
 };

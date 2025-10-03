@@ -8,7 +8,7 @@
 #include "ResourceManager.h"
 
 // Game includes.
-#include "Room.h"
+#include "GameStart.h"
 
 void loadResources(void) {
     // Load Character Sprites
@@ -36,7 +36,7 @@ void populateWorld() {
     // Load Music
     //RM.loadMusic("filepath", "musicname");
 
-    new Room;
+    new GameStart;
 }
 
 int main(int argc, char *argv[]) {

@@ -91,6 +91,7 @@
     <ClInclude Include="EventStep.h" />
     <ClInclude Include="Frame.h" />
     <ClInclude Include="GameManager.h" />
+    <ClInclude Include="GameStart.h" />
     <ClInclude Include="InputManager.h" />
     <ClInclude Include="LogManager.h" />
     <ClInclude Include="Manager.h" />
@@ -98,6 +99,7 @@
     <ClInclude Include="Object.h" />
     <ClInclude Include="ObjectList.h" />
     <ClInclude Include="ResourceManager.h" />
+    <ClInclude Include="Reticle.h" />
     <ClInclude Include="Room.h" />
     <ClInclude Include="Sound.h" />
     <ClInclude Include="Sprite.h" />
@@ -118,6 +120,7 @@
     <ClCompile Include="Frame.cpp" />
     <ClCompile Include="game.cpp" />
     <ClCompile Include="GameManager.cpp" />
+    <ClCompile Include="GameStart.cpp" />
     <ClCompile Include="InputManager.cpp" />
     <ClCompile Include="LogManager.cpp">
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -127,6 +130,7 @@
     <ClCompile Include="Object.cpp" />
     <ClCompile Include="ObjectList.cpp" />
     <ClCompile Include="ResourceManager.cpp" />
+    <ClCompile Include="Reticle.cpp" />
     <ClCompile Include="Room.cpp" />
     <ClCompile Include="Sound.cpp" />
     <ClCompile Include="Sprite.cpp" />

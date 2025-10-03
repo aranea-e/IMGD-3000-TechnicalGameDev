@@ -138,6 +138,12 @@
     <ClInclude Include="Room.h">
       <Filter>Header Files\Game</Filter>
     </ClInclude>
+    <ClInclude Include="GameStart.h">
+      <Filter>Header Files\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Reticle.h">
+      <Filter>Header Files\Game</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="EventStep.cpp">
@@ -213,6 +219,12 @@
       <Filter>Source Files\Game</Filter>
     </ClCompile>
     <ClCompile Include="Room.cpp">
+      <Filter>Source Files\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="GameStart.cpp">
+      <Filter>Source Files\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Reticle.cpp">
       <Filter>Source Files\Game</Filter>
     </ClCompile>
   </ItemGroup>
