@@ -9,6 +9,7 @@
 
 // Game includes.
 #include "Room.h"
+#include "Player.h"
 
 void loadResources(void) {
     // Load Character Sprites
@@ -37,6 +38,7 @@ void populateWorld() {
     //RM.loadMusic("filepath", "musicname");
 
     new Room;
+    new Player;
 }
 
 int main(int argc, char *argv[]) {
