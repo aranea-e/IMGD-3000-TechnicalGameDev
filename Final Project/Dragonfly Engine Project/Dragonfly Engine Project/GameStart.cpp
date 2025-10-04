@@ -1,6 +1,7 @@
 #include "GameStart.h"
 #include "Reticle.h"
 #include "Room.h"
+#include "Player.h"
 
 GameStart::GameStart() {
 	start();
@@ -9,4 +10,5 @@ GameStart::GameStart() {
 void GameStart::start() {
 	new Room(df::Vector(3, 3));
 	new Reticle;
+	new Player;
 }
