@@ -31,4 +31,8 @@ private:
 public:
 	Room();					// Default constructor (0, 0)
 	Room(df::Vector r_pos);	// Position constructor
+
+	int eventHandler(const df::Event* p_e) override;	// Event Handler
+
+	void moveRoom(df::Vector r_move);	// Changes rooms. Requires vector with values 0, 1, or -1.
 };

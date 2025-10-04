@@ -1,6 +1,7 @@
 #include "Room.h"
 #include "DisplayManager.h"
 #include "LogManager.h"
+#include "EventRoom.h"
 
 void Room::init(std::string r_sprite_name, df::Vector r_pos)
 {
@@ -21,6 +22,36 @@ Room::Room()
 Room::Room(df::Vector r_pos)
 {
 	init(RoomToString(PosToRoom(r_pos)), r_pos);
+}
+
+int Room::eventHandler(const df::Event* p_e)
+{
+	if (p_e->getType() == ROOM_EVENT) {
+		const EventRoom* p_room_event =
+			dynamic_cast <const EventRoom*> (p_e);
+		moveRoom(p_room_event->getPos());
+		return 1;
+	}
+
+	return 0;
+}
+
+void Room::moveRoom(df::Vector r_move)
+{
+
+	if (!(r_move.getX() == 0 || r_move.getX() == -1 || r_move.getX() == 1) ||
+		!(r_move.getY() == 0 || r_move.getY() == -1 || r_move.getY() == 1)) {
+		LM.writeLog("!!moveRoom given value other than 0, 1, -1!!\n");
+		return;
+	}
+	df::Vector new_pos = roomPos;
+	new_pos = new_pos + r_move;
+	if (new_pos.getX() < 0 || new_pos.getX() > 3 || new_pos.getY() < 0 || new_pos.getY() > 3) {
+		LM.writeLog("!!moveRoom out of bounds!!\nBad Pos: (%f, %f)\n%d%d%d%d\n", new_pos.getX(), new_pos.getY(),
+			r_move.getX() < 0, r_move.getX() > 3, r_move.getY() < 0, r_move.getY() > 3);
+		return;
+	}
+	init(RoomToString(PosToRoom(new_pos)), new_pos);
 }
 
 std::string Room::RoomToString(RoomType r_type)

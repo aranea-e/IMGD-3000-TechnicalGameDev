@@ -3,6 +3,7 @@
 #include "WorldManager.h"
 #include "EventStep.h"
 #include "LogManager.h"
+#include "EventRoom.h"
 
 Player::Player() {
     // set sprite
@@ -75,6 +76,7 @@ void Player::move(int dx, int dy) {
 
 // do action based on key pressed
 void Player::kbd(const df::EventKeyboard* p_keyboard_event) {
+    EventRoom* p_r = new EventRoom();
     switch (p_keyboard_event->getKey()) {
         // if Q is pressed, quit out of the game (destroy hero object)
     case df::Keyboard::Q:
@@ -84,28 +86,40 @@ void Player::kbd(const df::EventKeyboard* p_keyboard_event) {
         // if W pressed, move hero up
     case df::Keyboard::W:
         if (p_keyboard_event->getKeyboardAction() == df::KEY_PRESSED)
+        {
             dy -= 1;
+            p_r->addPos(df::Vector(0, -1));
+        }
         if (p_keyboard_event->getKeyboardAction() == df::KEY_RELEASED)
             dy += 1;
         break;
         // if S pressed, move hero down
     case df::Keyboard::S:
         if (p_keyboard_event->getKeyboardAction() == df::KEY_PRESSED)
+        {
             dy += 1;
+            p_r->addPos(df::Vector(0, 1));
+        }
         if (p_keyboard_event->getKeyboardAction() == df::KEY_RELEASED)
             dy -= 1;
         break;
         // if A pressed, move hero left
     case df::Keyboard::A:
         if (p_keyboard_event->getKeyboardAction() == df::KEY_PRESSED)
+        {
             dx -= 1;
+            p_r->addPos(df::Vector(-1, 0));
+        }
         if (p_keyboard_event->getKeyboardAction() == df::KEY_RELEASED)
             dx += 1;
         break;
         // if D pressed, move hero right
     case df::Keyboard::D:
         if (p_keyboard_event->getKeyboardAction() == df::KEY_PRESSED)
+        {
             dx += 1;
+            p_r->addPos(df::Vector(1, 0));
+        }
         if (p_keyboard_event->getKeyboardAction() == df::KEY_RELEASED)
             dx -= 1;
         break;
@@ -113,6 +127,7 @@ void Player::kbd(const df::EventKeyboard* p_keyboard_event) {
     default:
         return;
     };
+    WM.onEvent(p_r);
     return;
 }
 
