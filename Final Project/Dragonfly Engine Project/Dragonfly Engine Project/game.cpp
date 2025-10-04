@@ -26,6 +26,7 @@ void loadResources(void) {
     RM.loadSprite("sprites_dev/Room_TL_dev.txt", "Room_TL");
     RM.loadSprite("sprites_dev/Room_TM_dev.txt", "Room_TM");
     RM.loadSprite("sprites_dev/Room_TR_dev.txt", "Room_TR");
+    RM.loadSprite("sprites_dev/Bingus.txt", "Bingus");
 }
 
 // Populate world with some objects.
