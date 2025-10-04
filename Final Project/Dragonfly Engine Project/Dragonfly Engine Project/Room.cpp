@@ -1,7 +1,9 @@
 #include "Room.h"
+#include "WorldManager.h"
 #include "DisplayManager.h"
 #include "LogManager.h"
 #include "EventRoom.h"
+#include "EventRoomLoaded.h"
 
 void Room::init(std::string r_sprite_name, df::Vector r_pos)
 {
@@ -14,10 +16,7 @@ void Room::init(std::string r_sprite_name, df::Vector r_pos)
 	LM.writeLog("Room Loaded: %s\n", r_sprite_name.c_str());
 }
 
-Room::Room() 
-{
-	init("Room_MM");
-}
+Room::Room() : Room(df::Vector(0, 0)) {}
 
 Room::Room(df::Vector r_pos)
 {
@@ -51,7 +50,10 @@ void Room::moveRoom(df::Vector r_move)
 			r_move.getX() < 0, r_move.getX() > 3, r_move.getY() < 0, r_move.getY() > 3);
 		return;
 	}
+	df::Vector old_pos = roomPos;
 	init(RoomToString(PosToRoom(new_pos)), new_pos);
+	EventRoomLoaded* p_rl = new EventRoomLoaded(new_pos, old_pos);
+	WM.onEvent(p_rl);
 }
 
 std::string Room::RoomToString(RoomType r_type)

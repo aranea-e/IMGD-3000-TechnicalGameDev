@@ -8,7 +8,7 @@ GameStart::GameStart() {
 }
 
 void GameStart::start() {
-	new Room(df::Vector(3, 3));
+	new Room;
 	new Reticle;
 	new Player;
 }

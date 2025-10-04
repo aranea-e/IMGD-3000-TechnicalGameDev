@@ -4,6 +4,7 @@
 #include "EventStep.h"
 #include "LogManager.h"
 #include "EventRoom.h"
+#include "EventRoomLoaded.h"
 
 Player::Player() {
     // set sprite
@@ -36,6 +37,12 @@ int Player::eventHandler(const df::Event* p_e) {
         kbd(p_keyboard_event);
         return 1;
     }
+    if (p_e->getType() == ROOM_LOADED_EVENT) {
+        const EventRoomLoaded* p_load_event =
+            dynamic_cast <const EventRoomLoaded*> (p_e);
+        loaded(p_load_event);
+        return 1;
+    }
     // if a mouse event occurs, call mouse
     /*if (p_e->getType() == df::MSE_EVENT) {
         const df::EventMouse* p_mouse_event =
@@ -65,19 +72,47 @@ void Player::move(int dx, int dy) {
 
     // Update hero's position to new_pos (if new_pos is valid)
     df::Vector new_pos(getPosition().getX() + dx, getPosition().getY() + dy);
-    // TODO: Create bounds for the player movement
-    // 
-    if ((new_pos.getY() > 4) && // limits how low the ship can fly
-        (new_pos.getY() < DM.getVertical() - 4) && // limits how high the ship can fly
-        (new_pos.getX() > 20) && // limits how left the ship can fly
-        (new_pos.getX() < DM.getHorizontal() - 20)
-        ) // limits how right the ship can fly
+
+    EventRoom* p_r = nullptr;
+    
+    if (new_pos.getY() < 5 || new_pos.getY() > DM.getVertical() - 5)        // Horizontal Bounds
+    {
+        new_pos.setY(getPosition().getY());
+        if (new_pos.getX() > 38 && new_pos.getX() < DM.getHorizontal() - 38)
+        {
+            if (dy > 0)
+            {
+                p_r = new EventRoom(df::Vector(0, 1));
+            } else {
+                p_r = new EventRoom(df::Vector(0, -1));
+            }
+        }
+    }
+
+    if (new_pos.getX() < 21 || new_pos.getX() > DM.getHorizontal() - 21)    // Vertical Bounds
+    {
+        new_pos.setX(getPosition().getX());
+        if (new_pos.getY() > 10 && new_pos.getY() < DM.getVertical() - 10)
+        {
+            if (dx > 0)
+            {
+                p_r = new EventRoom(df::Vector(1, 0));
+            }
+            else {
+                p_r = new EventRoom(df::Vector(-1, 0));
+            }
+        }
+    }
+
     WM.moveObject(this, new_pos);
+    if (p_r != nullptr)
+    {
+        WM.onEvent(p_r);
+    }
 }
 
 // do action based on key pressed
 void Player::kbd(const df::EventKeyboard* p_keyboard_event) {
-    EventRoom* p_r = new EventRoom();
     switch (p_keyboard_event->getKey()) {
         // if Q is pressed, quit out of the game (destroy hero object)
     case df::Keyboard::Q:
@@ -89,7 +124,6 @@ void Player::kbd(const df::EventKeyboard* p_keyboard_event) {
         if (p_keyboard_event->getKeyboardAction() == df::KEY_PRESSED)
         {
             dy -= 1;
-            p_r->addPos(df::Vector(0, -1));
         }
         if (p_keyboard_event->getKeyboardAction() == df::KEY_RELEASED)
             dy += 1;
@@ -99,7 +133,6 @@ void Player::kbd(const df::EventKeyboard* p_keyboard_event) {
         if (p_keyboard_event->getKeyboardAction() == df::KEY_PRESSED)
         {
             dy += 1;
-            p_r->addPos(df::Vector(0, 1));
         }
         if (p_keyboard_event->getKeyboardAction() == df::KEY_RELEASED)
             dy -= 1;
@@ -109,7 +142,6 @@ void Player::kbd(const df::EventKeyboard* p_keyboard_event) {
         if (p_keyboard_event->getKeyboardAction() == df::KEY_PRESSED)
         {
             dx -= 1;
-            p_r->addPos(df::Vector(-1, 0));
         }
         if (p_keyboard_event->getKeyboardAction() == df::KEY_RELEASED)
             dx += 1;
@@ -119,7 +151,6 @@ void Player::kbd(const df::EventKeyboard* p_keyboard_event) {
         if (p_keyboard_event->getKeyboardAction() == df::KEY_PRESSED)
         {
             dx += 1;
-            p_r->addPos(df::Vector(1, 0));
         }
         if (p_keyboard_event->getKeyboardAction() == df::KEY_RELEASED)
             dx -= 1;
@@ -128,8 +159,31 @@ void Player::kbd(const df::EventKeyboard* p_keyboard_event) {
     default:
         return;
     };
-    WM.onEvent(p_r);
     return;
+}
+
+void Player::loaded(const EventRoomLoaded* p_load_event)
+{
+    df::Vector new_pos = df::Vector(getPosition().getX(), getPosition().getY());
+
+    if (p_load_event->getPos().getX() > p_load_event->getOldPos().getX())
+    {
+        new_pos.setX(new_pos.getX() - 38);
+    } else if (p_load_event->getPos().getX() < p_load_event->getOldPos().getX())
+    {
+        new_pos.setX(new_pos.getX() + 38);
+    }
+
+    if (p_load_event->getPos().getY() > p_load_event->getOldPos().getY())
+    {
+        new_pos.setY(new_pos.getY() - 13);
+    }
+    else if (p_load_event->getPos().getY() < p_load_event->getOldPos().getY())
+    {
+        new_pos.setY(new_pos.getY() + 13);
+    }
+
+    WM.moveObject(this, new_pos);
 }
 
 // in charge of getting where bullets should be fired

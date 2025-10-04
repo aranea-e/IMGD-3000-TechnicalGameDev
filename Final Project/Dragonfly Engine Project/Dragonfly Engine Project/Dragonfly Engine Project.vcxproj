@@ -93,6 +93,7 @@
     <ClInclude Include="EventMouse.h" />
     <ClInclude Include="EventOut.h" />
     <ClInclude Include="EventRoom.h" />
+    <ClInclude Include="EventRoomLoaded.h" />
     <ClInclude Include="EventStep.h" />
     <ClInclude Include="Frame.h" />
     <ClInclude Include="GameManager.h" />
@@ -123,6 +124,7 @@
     <ClCompile Include="EventMouse.cpp" />
     <ClCompile Include="EventOut.cpp" />
     <ClCompile Include="EventRoom.cpp" />
+    <ClCompile Include="EventRoomLoaded.cpp" />
     <ClCompile Include="EventStep.cpp" />
     <ClCompile Include="Frame.cpp" />
     <ClCompile Include="game.cpp" />
