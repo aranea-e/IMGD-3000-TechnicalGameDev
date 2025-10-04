@@ -67,10 +67,11 @@ void Player::move(int dx, int dy) {
     df::Vector new_pos(getPosition().getX() + dx, getPosition().getY() + dy);
     // TODO: Create bounds for the player movement
     // 
-    //if ((new_pos.getY() > 3) && // limits how low the ship can fly
-    //    (new_pos.getY() < DM.getVertical() - 1) && // limits how high the ship can fly
-    //    (new_pos.getX() > 3) && // limits how left the ship can fly
-    //    (new_pos.getX() < DM.getHorizontal() / 3)) // limits how right the ship can fly
+    if ((new_pos.getY() > 4) && // limits how low the ship can fly
+        (new_pos.getY() < DM.getVertical() - 4) && // limits how high the ship can fly
+        (new_pos.getX() > 20) && // limits how left the ship can fly
+        (new_pos.getX() < DM.getHorizontal() - 20)
+        ) // limits how right the ship can fly
     WM.moveObject(this, new_pos);
 }
 
