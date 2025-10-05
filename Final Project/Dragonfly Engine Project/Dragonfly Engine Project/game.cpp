@@ -41,6 +41,20 @@ void loadResources(void) {
     RM.loadSprite("sprites_dev/Murd_dev.txt", "Murd_M");
     RM.getSprite("Murd_M")->setColor(df::MAGENTA);
 
+    RM.loadSprite("sprites_dev/Dead_dev.txt", "Dead");
+    RM.loadSprite("sprites_dev/Dead_dev.txt", "Dead_R");
+    RM.getSprite("Dead_R")->setColor(df::RED);
+    RM.loadSprite("sprites_dev/Dead_dev.txt", "Dead_G");
+    RM.getSprite("Dead_G")->setColor(df::GREEN);
+    RM.loadSprite("sprites_dev/Dead_dev.txt", "Dead_B");
+    RM.getSprite("Dead_B")->setColor(df::BLUE);
+    RM.loadSprite("sprites_dev/Dead_dev.txt", "Dead_C");
+    RM.getSprite("Dead_C")->setColor(df::CYAN);
+    RM.loadSprite("sprites_dev/Dead_dev.txt", "Dead_Y");
+    RM.getSprite("Dead_Y")->setColor(df::YELLOW);
+    RM.loadSprite("sprites_dev/Dead_dev.txt", "Dead_M");
+    RM.getSprite("Dead_M")->setColor(df::MAGENTA);
+
     // Load Room Sprites.
     RM.loadSprite("sprites_dev/Room_BL_dev.txt", "Room_BL");
     RM.loadSprite("sprites_dev/Room_BM_dev.txt", "Room_BM");

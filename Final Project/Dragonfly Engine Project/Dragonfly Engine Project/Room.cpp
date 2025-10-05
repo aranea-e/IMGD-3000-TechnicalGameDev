@@ -13,7 +13,7 @@ void Room::init(std::string r_sprite_name, df::Vector r_pos)
 	setAltitude(0);
 	setPosition(df::Vector(DM.getHorizontal() / 2, DM.getVertical() / 2));
 	roomPos = r_pos;
-	LM.writeLog("Room Loaded: %s\n", r_sprite_name.c_str());
+	LM.writeLog("Room Loaded: %s (%d, %d)\n", r_sprite_name.c_str(), roomPos.getX(), roomPos.getY());
 }
 
 Room::Room() : Room(df::Vector(0, 0)) {}

@@ -37,6 +37,7 @@ void GameStart::start() {
 	new NPC(df::YELLOW, df::Vector(2, 2));
 	new NPC(df::MAGENTA, df::Vector(2, 2));
 
+	//NPC* murd = (NPC*)WM.objectsOfType("NPC")[0];
 	NPC* murd = (NPC*)WM.objectsOfType("NPC")[std::rand() % 6];
 	murd->setMurd();
 }
