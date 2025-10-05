@@ -75,7 +75,7 @@ void Player::move(int dx, int dy) {
 
     EventRoom* p_r = nullptr;
     
-    if (new_pos.getY() < 5 || new_pos.getY() > DM.getVertical() - 5)        // Horizontal Bounds
+    if (new_pos.getY() < 5 || new_pos.getY() > DM.getVertical() - 5)        // Vertical Bounds
     {
         new_pos.setY(getPosition().getY());
         if (new_pos.getX() > 38 && new_pos.getX() < DM.getHorizontal() - 38)
@@ -89,7 +89,7 @@ void Player::move(int dx, int dy) {
         }
     }
 
-    if (new_pos.getX() < 21 || new_pos.getX() > DM.getHorizontal() - 21)    // Vertical Bounds
+    if (new_pos.getX() < 21 || new_pos.getX() > DM.getHorizontal() - 21)    // Horizontal Bounds
     {
         new_pos.setX(getPosition().getX());
         if (new_pos.getY() > 10 && new_pos.getY() < DM.getVertical() - 10)

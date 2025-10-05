@@ -78,7 +78,7 @@ void df::GameManager::run() // Game loop
 			Sleep(sleep_time);
 		}
 		else {
-			LM.writeLog("!!sleep_time was <= 0, not sleeping. Game Lag.!!\n");
+			//LM.writeLog("!!sleep_time was <= 0, not sleeping. Game Lag.!!\n");
 		}
 	}
 }

@@ -32,7 +32,10 @@ public:
 	Room();					// Default constructor (0, 0)
 	Room(df::Vector r_pos);	// Position constructor
 
+	df::Vector getCurrentPos(); // get the current room player is in
+
 	int eventHandler(const df::Event* p_e) override;	// Event Handler
 
 	void moveRoom(df::Vector r_move);	// Changes rooms. Requires vector with values 0, 1, or -1.
+	bool* getDoors();					// Gets all doors to current room. Returned as an array with [N,E,S,W]
 };

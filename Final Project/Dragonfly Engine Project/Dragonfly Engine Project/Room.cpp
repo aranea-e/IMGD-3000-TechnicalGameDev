@@ -23,6 +23,10 @@ Room::Room(df::Vector r_pos)
 	init(RoomToString(PosToRoom(r_pos)), r_pos);
 }
 
+df::Vector Room::getCurrentPos() {
+	return roomPos;
+}
+
 int Room::eventHandler(const df::Event* p_e)
 {
 	if (p_e->getType() == ROOM_EVENT) {
@@ -54,6 +58,17 @@ void Room::moveRoom(df::Vector r_move)
 	init(RoomToString(PosToRoom(new_pos)), new_pos);
 	EventRoomLoaded* p_rl = new EventRoomLoaded(new_pos, old_pos);
 	WM.onEvent(p_rl);
+}
+
+bool* Room::getDoors()
+{
+	bool* out = new bool[4];
+	out[0] = (roomPos.getY() != 0); // North
+	out[1] = (roomPos.getX() != 3); // East
+	out[2] = (roomPos.getY() != 3); // South
+	out[3] = (roomPos.getX() != 0); // West
+	//LM.writeLog("%d, %d, %d, %d\n", out[0], out[1], out[2], out[3]);
+	return out;
 }
 
 std::string Room::RoomToString(RoomType r_type)

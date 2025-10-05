@@ -9,4 +9,5 @@ private:
 
 public:
 	GameStart();
+	int eventHandler(const df::Event* p_e) override;
 };
