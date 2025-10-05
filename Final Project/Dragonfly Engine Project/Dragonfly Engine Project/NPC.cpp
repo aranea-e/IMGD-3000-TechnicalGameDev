@@ -177,8 +177,8 @@ void NPC::stall() {
 
 	if (patience == 0) {
 		int roll = std::rand() % 4;
-		int x_move = (1 - (roll % 2)) * (roll - 1); // if roll = 0, move to the left; if roll = 2, move to the right
-		int y_move = (roll % 2) * (roll - 2); // if roll = 1, move to the left; if roll = 3, move to the right
+		int x_move = (1 - (roll % 2)) * (roll - 1); // if roll = 0, move west; if roll = 2, move east
+		int y_move = (roll % 2) * (roll - 2); // if roll = 1, move north; if roll = 3, move south
 		df::Vector new_vec = df::Vector(roomPos.getX() + x_move, roomPos.getY() + y_move);
 		while (new_vec.getX() < 0 || new_vec.getX() > 3 || new_vec.getY() < 0 || new_vec.getY() > 3) {
 			roll = std::rand() % 4;
@@ -187,7 +187,31 @@ void NPC::stall() {
 			new_vec.setXY(roomPos.getX() + x_move, roomPos.getY() + y_move);
 		}
 		setRoomPos(new_vec);
-		LM.writeLog("Changing rooms to new room %f, %f\n", new_vec.getX(), new_vec.getY());
+
+		loadNPC();
+		if (inLoadedRoom())
+		{
+			switch (roll) {
+			case 0:	// West
+				setPosition(df::Vector(DM.getHorizontal() - 21, DM.getVertical() / 2));
+				break;
+			case 1:	// North
+				setPosition(df::Vector(DM.getHorizontal() / 2, DM.getVertical() - 5));
+				break;
+			case 2:	// East
+				setPosition(df::Vector(21, DM.getVertical() / 2));
+				break;
+			case 3:	// South
+				setPosition(df::Vector(DM.getHorizontal() / 2, 5));
+				break;
+			}
+		}
+		else {
+			setPosition(df::Vector(std::rand() % (DM.getHorizontal() - 42) + 21, std::rand() % (DM.getVertical() - 10) + 5));
+		}
+		unloadNPC();
+
+		//LM.writeLog("Changing rooms to new room %f, %f\n", new_vec.getX(), new_vec.getY());
 	}
 }
 
