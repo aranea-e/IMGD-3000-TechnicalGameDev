@@ -60,6 +60,17 @@ void Room::moveRoom(df::Vector r_move)
 	WM.onEvent(p_rl);
 }
 
+bool* Room::getDoors()
+{
+	bool* out = new bool[4];
+	out[0] = (roomPos.getY() != 0); // North
+	out[1] = (roomPos.getX() != 3); // East
+	out[2] = (roomPos.getY() != 3); // South
+	out[3] = (roomPos.getX() != 0); // West
+	//LM.writeLog("%d, %d, %d, %d\n", out[0], out[1], out[2], out[3]);
+	return out;
+}
+
 std::string Room::RoomToString(RoomType r_type)
 {
 	switch (r_type) {

@@ -11,7 +11,9 @@ private:
 	std::string state;
 	int roamX;
 	int roamY;
+	int target;
 	df::Color color;
+	bool loaded;
 
 public:
 	NPC();
