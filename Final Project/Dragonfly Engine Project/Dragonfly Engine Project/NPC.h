@@ -11,9 +11,12 @@ private:
 	std::string state;
 	int roamX;
 	int roamY;
+	df::Color color;
 
 public:
 	NPC();
+	NPC(df::Color npc_color);
+	void setColor(df::Color npc_color);
 	void setRoomPos(df::Vector new_room);
 	df::Vector getRoomPos();
 	virtual void roam();

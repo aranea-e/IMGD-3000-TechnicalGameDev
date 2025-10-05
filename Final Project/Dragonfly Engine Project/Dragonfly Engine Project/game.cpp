@@ -14,6 +14,18 @@ void loadResources(void) {
     // Load Character Sprites
     RM.loadSprite("sprites_dev/PC_dev.txt", "PC");
     RM.loadSprite("sprites_dev/NPC_dev.txt", "NPC");
+    RM.loadSprite("sprites_dev/NPC_dev.txt", "NPC_R");
+    RM.getSprite("NPC_R")->setColor(df::RED);
+    RM.loadSprite("sprites_dev/NPC_dev.txt", "NPC_G");
+    RM.getSprite("NPC_G")->setColor(df::GREEN);
+    RM.loadSprite("sprites_dev/NPC_dev.txt", "NPC_B");
+    RM.getSprite("NPC_B")->setColor(df::BLUE);
+    RM.loadSprite("sprites_dev/NPC_dev.txt", "NPC_C");
+    RM.getSprite("NPC_C")->setColor(df::CYAN);
+    RM.loadSprite("sprites_dev/NPC_dev.txt", "NPC_Y");
+    RM.getSprite("NPC_Y")->setColor(df::YELLOW);
+    RM.loadSprite("sprites_dev/NPC_dev.txt", "NPC_M");
+    RM.getSprite("NPC_M")->setColor(df::MAGENTA);
     RM.loadSprite("sprites_dev/Murd_dev.txt", "Murd");
 
     // Load Room Sprites.

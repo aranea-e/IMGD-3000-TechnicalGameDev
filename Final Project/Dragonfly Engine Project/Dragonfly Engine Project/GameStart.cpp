@@ -29,5 +29,10 @@ void GameStart::start() {
 	new Room;
 	new Reticle;
 	new Player;
-	new NPC;
+	new NPC(df::RED);
+	new NPC(df::BLUE);
+	new NPC(df::GREEN);
+	new NPC(df::CYAN);
+	new NPC(df::YELLOW);
+	new NPC(df::MAGENTA);
 }

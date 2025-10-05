@@ -6,8 +6,12 @@
 #include "EventStep.h"
 #include "LogManager.h"
 
-NPC::NPC() {
-	roomPos = df::Vector(0, 1);
+NPC::NPC() : NPC(df::WHITE) { }
+
+NPC::NPC(df::Color npc_color)
+{
+
+    roomPos = df::Vector(0, 1);
     mapPos = df::Vector(DM.getHorizontal() / 2, DM.getVertical() / 2);
     patience = -1;
     stateCooldown = 0;
@@ -17,18 +21,44 @@ NPC::NPC() {
     roamY = 0;
 
     // set sprite
-    setSprite("NPC");
+    setColor(npc_color);
     // set type
     setType("NPC");
 
     setSolidness(df::SOFT);
     setAltitude(1);
-    
+
     if (inLoadedRoom()) {
         loadNPC();
     }
     else {
         unloadNPC();
+    }
+}
+
+void NPC::setColor(df::Color npc_color) {
+    switch (npc_color) {
+    case df::RED:
+        setSprite("NPC_R");
+        break;
+    case df::GREEN:
+        setSprite("NPC_G");
+        break;
+    case df::BLUE:
+        setSprite("NPC_B");
+        break;
+    case df::CYAN:
+        setSprite("NPC_C");
+        break;
+    case df::YELLOW:
+        setSprite("NPC_Y");
+        break;
+    case df::MAGENTA:
+        setSprite("NPC_M");
+        break;
+    case df::WHITE:
+    default:
+        setSprite("NPC");
     }
 }
 
