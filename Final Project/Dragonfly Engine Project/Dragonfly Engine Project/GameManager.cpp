@@ -28,6 +28,7 @@ int df::GameManager::startUp() {
 	DM.startUp();
 	IM.startUp();
 	timeBeginPeriod(1);
+	srand(time(NULL));
 	return 0;
 }
 

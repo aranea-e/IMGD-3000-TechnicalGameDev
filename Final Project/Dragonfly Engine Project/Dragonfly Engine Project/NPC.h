@@ -14,13 +14,20 @@ private:
 	int target;
 	df::Color color;
 	bool loaded;
+	bool isMurd;
+	bool isHunting;
 
 public:
 	NPC();
 	NPC(df::Color npc_color);
 	void setColor(df::Color npc_color);
+	std::string getColorString() const;
 	void setRoomPos(df::Vector new_room);
-	df::Vector getRoomPos();
+	df::Vector getRoomPos() const;
+	void setMurd(bool murd = true);
+	bool getMurd() const;
+	void setHunt(bool hunt = true);
+	bool getHunt() const;
 	virtual void roam();
 	bool inLoadedRoom();
 	void loadNPC();

@@ -5,6 +5,7 @@
 #include "NPC.h"
 #include "DisplayManager.h"
 #include "WorldManager.h"
+#include "LogManager.h"
 
 GameStart::GameStart() {
 	setSprite("Bingus");
@@ -35,4 +36,7 @@ void GameStart::start() {
 	new NPC(df::CYAN);
 	new NPC(df::YELLOW);
 	new NPC(df::MAGENTA);
+
+	NPC* murd = (NPC*)WM.objectsOfType("NPC")[std::rand() % 6];
+	murd->setMurd();
 }

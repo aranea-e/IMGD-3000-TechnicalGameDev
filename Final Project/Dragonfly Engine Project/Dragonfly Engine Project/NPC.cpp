@@ -11,6 +11,8 @@ NPC::NPC() : NPC(df::WHITE) {}
 
 NPC::NPC(df::Color npc_color)
 {
+	isMurd = false;
+	isHunting = false;
 
 	roomPos = df::Vector(0, 1);
 	mapPos = df::Vector(DM.getHorizontal() / 2, DM.getVertical() / 2);
@@ -40,28 +42,59 @@ NPC::NPC(df::Color npc_color)
 }
 
 void NPC::setColor(df::Color npc_color) {
-	switch (npc_color) {
+	color = npc_color;
+	std::string spriteTag;
+	switch (color) {
 	case df::RED:
-		setSprite("NPC_R");
+		spriteTag = "_R";
 		break;
 	case df::GREEN:
-		setSprite("NPC_G");
+		spriteTag = "_G";
 		break;
 	case df::BLUE:
-		setSprite("NPC_B");
+		spriteTag = "_B";
 		break;
 	case df::CYAN:
-		setSprite("NPC_C");
+		spriteTag = "_C";
 		break;
 	case df::YELLOW:
-		setSprite("NPC_Y");
+		spriteTag = "_Y";
 		break;
 	case df::MAGENTA:
-		setSprite("NPC_M");
+		spriteTag = "_M";
 		break;
 	case df::WHITE:
 	default:
-		setSprite("NPC");
+		spriteTag = "";
+	}
+
+	if (isHunting)
+	{
+		setSprite("Murd" + spriteTag);
+	}
+	else {
+		setSprite("NPC" + spriteTag);
+	}
+}
+
+std::string NPC::getColorString() const
+{
+	switch (color) {
+	case df::RED:
+		return "Red";
+	case df::GREEN:
+		return "Green";
+	case df::BLUE:
+		return "Blue";
+	case df::CYAN:
+		return "Cyan";
+	case df::YELLOW:
+		return "Yellow";
+	case df::MAGENTA:
+		return "Magenta";
+	case df::WHITE:
+	default:
+		return "White";
 	}
 }
 
@@ -69,8 +102,32 @@ void NPC::setRoomPos(df::Vector new_room) {
 	roomPos = new_room;
 }
 
-df::Vector NPC::getRoomPos() {
+df::Vector NPC::getRoomPos() const {
 	return roomPos;
+}
+
+void NPC::setMurd(bool murd)
+{
+	isMurd = murd;
+	setHunt(murd);
+
+	LM.writeLog("Chosen Murderer: %s %d\n", getColorString().c_str(), isMurd);
+}
+
+bool NPC::getMurd() const
+{
+	return isMurd;
+}
+
+void NPC::setHunt(bool hunt)
+{
+	isHunting = hunt;
+	setColor(color);
+}
+
+bool NPC::getHunt() const
+{
+	return isHunting;
 }
 
 void NPC::loadNPC() {
