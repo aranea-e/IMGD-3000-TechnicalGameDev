@@ -51,13 +51,17 @@ void loadResources(void) {
     RM.loadSprite("sprites_dev/Room_TL_dev.txt", "Room_TL");
     RM.loadSprite("sprites_dev/Room_TM_dev.txt", "Room_TM");
     RM.loadSprite("sprites_dev/Room_TR_dev.txt", "Room_TR");
+
     RM.loadSprite("sprites_dev/Bingus.txt", "Bingus");
+    RM.loadSprite("sprites_dev/Bullet_dev.txt", "Bullet");
 }
 
 // Populate world with some objects.
 void populateWorld() {
     // Load Sounds
-    //RM.loadSound("filepath", "musicname");
+    RM.loadSound("sounds_dev/Sound1_dev.wav", "Sound1");
+    RM.loadSound("sounds_dev/Sound2_dev.wav", "Sound2");
+    RM.loadSound("sounds_dev/Sound3_dev.wav", "Sound3");
 
     // Load Music
     //RM.loadMusic("filepath", "musicname");

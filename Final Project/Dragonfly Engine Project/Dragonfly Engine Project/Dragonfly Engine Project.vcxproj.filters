@@ -144,16 +144,22 @@
     <ClInclude Include="Reticle.h">
       <Filter>Header Files\Game</Filter>
     </ClInclude>
-    <ClInclude Include="EventRoom.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="EventRoomLoaded.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Player.h">
       <Filter>Header Files\Game</Filter>
     </ClInclude>
     <ClInclude Include="NPC.h">
+      <Filter>Header Files\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="GameEnd.h">
+      <Filter>Header Files\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Bullet.h">
+      <Filter>Header Files\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="EventRoomLoaded.h">
+      <Filter>Header Files\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="EventRoom.h">
       <Filter>Header Files\Game</Filter>
     </ClInclude>
   </ItemGroup>
@@ -249,6 +255,12 @@
       <Filter>Source Files\Game</Filter>
     </ClCompile>
     <ClCompile Include="NPC.cpp">
+      <Filter>Source Files\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="GameEnd.cpp">
+      <Filter>Source Files\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Bullet.cpp">
       <Filter>Source Files\Game</Filter>
     </ClCompile>
   </ItemGroup>

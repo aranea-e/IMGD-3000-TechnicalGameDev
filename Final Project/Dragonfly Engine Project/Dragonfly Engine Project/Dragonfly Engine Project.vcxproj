@@ -84,6 +84,7 @@
   <ItemGroup>
     <ClInclude Include="Animation.h" />
     <ClInclude Include="Box.h" />
+    <ClInclude Include="Bullet.h" />
     <ClInclude Include="Clock.h" />
     <ClInclude Include="Color.h" />
     <ClInclude Include="DisplayManager.h" />
@@ -96,6 +97,7 @@
     <ClInclude Include="EventRoomLoaded.h" />
     <ClInclude Include="EventStep.h" />
     <ClInclude Include="Frame.h" />
+    <ClInclude Include="GameEnd.h" />
     <ClInclude Include="GameManager.h" />
     <ClInclude Include="GameStart.h" />
     <ClInclude Include="InputManager.h" />
@@ -117,6 +119,7 @@
   <ItemGroup>
     <ClCompile Include="Animation.cpp" />
     <ClCompile Include="Box.cpp" />
+    <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="Clock.cpp" />
     <ClCompile Include="DisplayManager.cpp" />
     <ClCompile Include="Event.cpp" />
@@ -129,6 +132,7 @@
     <ClCompile Include="EventStep.cpp" />
     <ClCompile Include="Frame.cpp" />
     <ClCompile Include="game.cpp" />
+    <ClCompile Include="GameEnd.cpp" />
     <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="GameStart.cpp" />
     <ClCompile Include="InputManager.cpp" />

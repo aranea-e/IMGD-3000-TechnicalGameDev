@@ -13,7 +13,8 @@ private:
 	void step();
 	void move(int dx, int dy);
 	void kbd(const df::EventKeyboard* p_keyboard_event);
-	/*void mouse(const df::EventMouse* p_mouse_event);*/
+	void mouse(const df::EventMouse* p_mouse_event);
+	void fire(df::Vector pos);
 	void loaded(const EventRoomLoaded* p_load_event);
 
 public:

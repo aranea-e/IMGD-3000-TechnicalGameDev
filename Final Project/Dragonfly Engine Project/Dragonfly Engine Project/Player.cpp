@@ -5,6 +5,8 @@
 #include "LogManager.h"
 #include "EventRoom.h"
 #include "EventRoomLoaded.h"
+#include "GameEnd.h"
+#include "Bullet.h"
 
 Player::Player() {
     // set sprite
@@ -43,13 +45,13 @@ int Player::eventHandler(const df::Event* p_e) {
         loaded(p_load_event);
         return 1;
     }
-    // if a mouse event occurs, call mouse
-    /*if (p_e->getType() == df::MSE_EVENT) {
+     //if a mouse event occurs, call mouse
+    if (p_e->getType() == df::MSE_EVENT) {
         const df::EventMouse* p_mouse_event =
             dynamic_cast <const df::EventMouse*> (p_e);
         mouse(p_mouse_event);
         return 1;
-    }*/
+    }
     return 0;
 }
 
@@ -117,7 +119,7 @@ void Player::kbd(const df::EventKeyboard* p_keyboard_event) {
         // if Q is pressed, quit out of the game (destroy hero object)
     case df::Keyboard::Q:
         if (p_keyboard_event->getKeyboardAction() == df::KEY_PRESSED)
-            WM.markForDelete(this);
+            new GameEnd(3);
         break;
         // if W pressed, move hero up
     case df::Keyboard::W:
@@ -187,10 +189,15 @@ void Player::loaded(const EventRoomLoaded* p_load_event)
 }
 
 // in charge of getting where bullets should be fired
-//void Player::mouse(const df::EventMouse* p_mouse_event) {
-//    // if left button pressed, fire bullet at mouse location (if cooldown allows)
-//    if ((p_mouse_event->getMouseAction() == df::CLICKED) &&
-//        (p_mouse_event->getMouseButton() == df::Mouse::LEFT))
-//        /*fire(p_mouse_event->getMousePosition());*/
-//        LM.writeLog("TODO");
-//}
+void Player::mouse(const df::EventMouse* p_mouse_event) {
+    // if left button pressed, fire bullet at mouse location (if cooldown allows)
+    if ((p_mouse_event->getMouseAction() == df::CLICKED) &&
+        (p_mouse_event->getMouseButton() == df::Mouse::LEFT))
+        fire(p_mouse_event->getMousePosition());
+}
+
+void Player::fire(df::Vector pos) {
+    df::Vector direction = (pos - getPosition());
+    direction.normalize();
+    new Bullet(getPosition(), direction);
+}

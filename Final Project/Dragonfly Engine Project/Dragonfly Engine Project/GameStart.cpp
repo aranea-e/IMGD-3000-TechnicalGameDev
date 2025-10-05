@@ -30,12 +30,12 @@ void GameStart::start() {
 	new Room;
 	new Reticle;
 	new Player;
-	new NPC(df::RED);
-	new NPC(df::BLUE);
-	new NPC(df::GREEN);
-	new NPC(df::CYAN);
-	new NPC(df::YELLOW);
-	new NPC(df::MAGENTA);
+	new NPC(df::RED, df::Vector(1, 1));
+	new NPC(df::BLUE, df::Vector(1, 1));
+	new NPC(df::GREEN, df::Vector(1, 1));
+	new NPC(df::CYAN, df::Vector(2, 2));
+	new NPC(df::YELLOW, df::Vector(2, 2));
+	new NPC(df::MAGENTA, df::Vector(2, 2));
 
 	NPC* murd = (NPC*)WM.objectsOfType("NPC")[std::rand() % 6];
 	murd->setMurd();

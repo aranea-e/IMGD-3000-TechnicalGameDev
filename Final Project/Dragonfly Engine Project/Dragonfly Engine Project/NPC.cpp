@@ -7,14 +7,12 @@
 #include "LogManager.h"
 #include "EventRoomLoaded.h"
 
-NPC::NPC() : NPC(df::WHITE) {}
-
-NPC::NPC(df::Color npc_color)
+NPC::NPC(df::Color npc_color, df::Vector pos)
 {
 	isMurd = false;
 	isHunting = false;
 
-	roomPos = df::Vector(0, 1);
+	roomPos = pos;
 	mapPos = df::Vector(DM.getHorizontal() / 2, DM.getVertical() / 2);
 	setPosition(mapPos);
 	patience = -1;

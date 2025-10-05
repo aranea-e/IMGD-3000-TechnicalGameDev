@@ -18,8 +18,8 @@ private:
 	bool isHunting;
 
 public:
-	NPC();
-	NPC(df::Color npc_color);
+	NPC(df::Color npc_color = df::WHITE, df::Vector pos = df::Vector(0, 0));
+
 	void setColor(df::Color npc_color);
 	std::string getColorString() const;
 	void setRoomPos(df::Vector new_room);
