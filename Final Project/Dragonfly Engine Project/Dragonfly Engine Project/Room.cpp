@@ -23,6 +23,10 @@ Room::Room(df::Vector r_pos)
 	init(RoomToString(PosToRoom(r_pos)), r_pos);
 }
 
+df::Vector Room::getCurrentPos() {
+	return roomPos;
+}
+
 int Room::eventHandler(const df::Event* p_e)
 {
 	if (p_e->getType() == ROOM_EVENT) {
