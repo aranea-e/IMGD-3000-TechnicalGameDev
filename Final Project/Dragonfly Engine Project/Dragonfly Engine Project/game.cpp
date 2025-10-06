@@ -75,6 +75,8 @@ void loadResources(void) {
     RM.loadSprite("sprites_dev/Innocent_Death_Screen_dev.txt", "Murderer");
     RM.loadSprite("sprites_dev/GameOver_dev.txt", "End");
     RM.loadSprite("sprites_dev/Bullet_dev.txt", "Bullet");
+
+    RM.loadSprite("sprites/Cutscene_Death.txt", "Death_Cutscene");
 }
 
 // Populate world with some objects.
@@ -85,9 +87,10 @@ void populateWorld() {
     RM.loadSound("sounds_dev/Sound3_dev.wav", "Sound3");
 
     // Load Music
-    //RM.loadMusic("filepath", "musicname");
+    RM.loadMusic("sounds/Backing Track.wav", "Music");
 
     new GameStart;
+    RM.getMusic("Music")->play();
 }
 
 int main(int argc, char *argv[]) {

@@ -1,6 +1,6 @@
 4
 54
-18
+17
 10
 green
  /$$$$$$$  /$$                                        
@@ -19,8 +19,7 @@ green
                  press P to play again                
                     press Q to quit                   
                 use W/A/S/D keys to move              
-            use left mouse click to fire and          
-         right mouse click to investigate items       
+              use left mouse click to fire            
 $$$$$$$\  $$\                                         
 $$  __$$\ \__|                                        
 $$ |  $$ |$$\ $$$$$$$\   $$$$$$\  $$\   $$\  $$$$$$$\ 
@@ -37,8 +36,7 @@ $$$$$$$  |$$ |$$ |  $$ |\$$$$$$$ |\$$$$$$  |$$$$$$$  |
                  press P to play again                
                     press Q to quit                   
                 use W/A/S/D keys to move              
-            use left mouse click to fire and          
-         right mouse click to investigate items       
+              use left mouse click to fire            
  _______   __                                         
 /       \ /  |                                        
 $$$$$$$  |$$/  _______    ______   __    __   _______ 
@@ -55,8 +53,7 @@ $$$$$$$/  $$/ $$/   $$/  $$$$$$$ | $$$$$$/  $$$$$$$/
                  press P to play again                
                     press Q to quit                   
                 use W/A/S/D keys to move              
-            use left mouse click to fire and          
-         right mouse click to investigate items       
+              use left mouse click to fire            
  _______   __                                         
 |       \ |  \                                        
 | $$$$$$$\ \$$ _______    ______   __    __   _______ 
@@ -73,5 +70,4 @@ $$$$$$$/  $$/ $$/   $$/  $$$$$$$ | $$$$$$/  $$$$$$$/
                  press P to play again                
                     press Q to quit                   
                 use W/A/S/D keys to move              
-            use left mouse click to fire and          
-         right mouse click to investigate items       
+              use left mouse click to fire            

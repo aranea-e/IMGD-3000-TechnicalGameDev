@@ -87,6 +87,7 @@
     <ClInclude Include="Bullet.h" />
     <ClInclude Include="Clock.h" />
     <ClInclude Include="Color.h" />
+    <ClInclude Include="Cutscene.h" />
     <ClInclude Include="DisplayManager.h" />
     <ClInclude Include="Event.h" />
     <ClInclude Include="EventCollision.h" />
@@ -121,6 +122,7 @@
     <ClCompile Include="Box.cpp" />
     <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="Clock.cpp" />
+    <ClCompile Include="Cutscene.cpp" />
     <ClCompile Include="DisplayManager.cpp" />
     <ClCompile Include="Event.cpp" />
     <ClCompile Include="EventCollision.cpp" />

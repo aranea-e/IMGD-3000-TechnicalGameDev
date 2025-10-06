@@ -3,7 +3,7 @@
 #include "EventOut.h"
 #include "EventRoomLoaded.h"
 #include "NPC.h"
-#include "GameEnd.h"
+#include "Cutscene.h"
 #include "WorldManager.h"
 
 Bullet::Bullet(df::Vector position, df::Vector direction, int speed)
@@ -49,10 +49,10 @@ void Bullet::collision(const df::EventCollision* collision)
 	if (c_npc != nullptr && c_npc->getAlive() && WM.objectsOfType("GameEnd").getCount() == 0) {
 		if (c_npc->getMurd())
 		{
-			new GameEnd(0);
+			new Cutscene(0, c_npc->getColor());
 		}
 		else {
-			new GameEnd(2);
+			new Cutscene(2, c_npc->getColor());
 		}
 	}
 }

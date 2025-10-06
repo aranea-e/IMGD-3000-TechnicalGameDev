@@ -162,6 +162,9 @@
     <ClInclude Include="EventRoom.h">
       <Filter>Header Files\Game</Filter>
     </ClInclude>
+    <ClInclude Include="Cutscene.h">
+      <Filter>Header Files\Game</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="EventStep.cpp">
@@ -261,6 +264,9 @@
       <Filter>Source Files\Game</Filter>
     </ClCompile>
     <ClCompile Include="EventRoomLoaded.cpp">
+      <Filter>Source Files\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Cutscene.cpp">
       <Filter>Source Files\Game</Filter>
     </ClCompile>
   </ItemGroup>
