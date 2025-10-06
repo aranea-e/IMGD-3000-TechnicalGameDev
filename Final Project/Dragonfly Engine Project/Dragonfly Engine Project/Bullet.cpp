@@ -1,6 +1,7 @@
 #include "Bullet.h"
 #include "EventCollision.h"
 #include "EventOut.h"
+#include "EventRoomLoaded.h"
 #include "NPC.h"
 #include "GameEnd.h"
 #include "WorldManager.h"
@@ -24,9 +25,11 @@ int Bullet::eventHandler(const df::Event* p_e)
 		collision(p_collision_event);
 		return 1;
 	}
-	if (p_e->getType() == df::OUT_EVENT)
+	if (p_e->getType() == df::OUT_EVENT ||
+		p_e->getType() == ROOM_LOADED_EVENT)
 	{
 		WM.markForDelete(this);
+		return 1;
 	}
 	return 0;
 }
