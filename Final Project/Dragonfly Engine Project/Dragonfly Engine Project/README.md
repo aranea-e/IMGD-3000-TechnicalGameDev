@@ -1,4 +1,5 @@
 **Bingus**
+
 An ASCII murder investigation game
 How many people can you save?
 
@@ -11,6 +12,7 @@ File directory structure: All source and header files can be located under the D
 						  audio and sprite files being located under the sounds_dev and sprites_dev folders respectively.
 
 *Game Details*:
+
 Bingus is an ASCII murder investigation game that requires the player to figure out which of the 6 people within the building is a murderer
 and is tasked with executing them before they can kill the player or cause serious harm to those around them.
 
