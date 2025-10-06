@@ -514,6 +514,8 @@ void NPC::assassinate()
 			setPosition(df::Vector((float)(std::rand() % (DM.getHorizontal() - 42) + 21), (float)(std::rand() % (DM.getVertical() - 10) + 5)));
 		}
 		unloadNPC();
+		setHunt(false, false);
+		checkHunt();
 	}
 }
 
