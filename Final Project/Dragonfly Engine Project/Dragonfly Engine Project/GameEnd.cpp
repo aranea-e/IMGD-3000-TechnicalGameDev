@@ -17,6 +17,7 @@ GameEnd::GameEnd(int type)
 	m_type = type;
 	df::Vector p(DM.getHorizontal() / 2, DM.getVertical() / 2);
 	setPosition(p);
+	setType("GameEnd");
 	end();
 }
 
@@ -29,7 +30,8 @@ int GameEnd::eventHandler(const df::Event* p_e) {
 			WM.markForDelete(this);
 		}
 		if (p_keyboard_event->getKey() == df::Keyboard::Q) {
-			m_type = 3;
+			WM.markForDelete(this);
+			new GameEnd(3);
 		}
 		if (p_keyboard_event->getKey() == df::Keyboard::R) {
 			new GameStart();
@@ -59,7 +61,10 @@ void GameEnd::end() {
 	df::ObjectList object_list = WM.getAllObjects();
 	for (int i = 0; i < object_list.getCount(); i++) {
 		df::Object* p_o = object_list[i];
-		WM.markForDelete(p_o);
+		if (p_o->getType() != "GameEnd")
+		{
+			WM.markForDelete(p_o);
+		}
 	}
 
 	switch (m_type) {
@@ -81,7 +86,10 @@ void GameEnd::end() {
 	case 3:
 		setSprite("End");
 		LM.writeLog("Game End: Player Quit\n");
-		Sleep(5000);
+		WM.update();
+		WM.draw();
+		DM.swapBuffers();
+		Sleep(3000);
 		GM.setGameOver();
 		break;
 	}

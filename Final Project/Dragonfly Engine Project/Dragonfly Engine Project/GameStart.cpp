@@ -6,6 +6,7 @@
 #include "DisplayManager.h"
 #include "WorldManager.h"
 #include "LogManager.h"
+#include "GameEnd.h"
 
 GameStart::GameStart() {
 	setSprite("Bingus");
@@ -20,6 +21,9 @@ int GameStart::eventHandler(const df::Event* p_e) {
 		if (p_keyboard_event->getKey() == df::Keyboard::P) {
 			start();
 			WM.markForDelete(this);
+		}
+		if (p_keyboard_event->getKey() == df::Keyboard::Q) {
+			new GameEnd(3);
 		}
 		return 1;
 	}

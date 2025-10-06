@@ -43,7 +43,7 @@ void Bullet::collision(const df::EventCollision* collision)
 		c_npc = (NPC*)collision->getObject2();
 	}
 
-	if (c_npc != nullptr && c_npc->getAlive()) {
+	if (c_npc != nullptr && c_npc->getAlive() && WM.objectsOfType("GameEnd").getCount() == 0) {
 		if (c_npc->getMurd())
 		{
 			new GameEnd(0);
