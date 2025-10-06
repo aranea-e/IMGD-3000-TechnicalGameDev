@@ -65,6 +65,9 @@ void loadResources(void) {
     RM.loadSprite("sprites_dev/Room_TL_dev.txt", "Room_TL");
     RM.loadSprite("sprites_dev/Room_TM_dev.txt", "Room_TM");
     RM.loadSprite("sprites_dev/Room_TR_dev.txt", "Room_TR");
+    RM.loadSprite("sprites_dev/Room_Wall_B_NoDoor_dev.txt", "Room_W_N");
+    RM.loadSprite("sprites_dev/Room_Wall_B_Door_dev.txt", "Room_W_D");
+
 
     RM.loadSprite("sprites_dev/Bingus.txt", "Bingus");
     RM.loadSprite("sprites_dev/Bullet_dev.txt", "Bullet");

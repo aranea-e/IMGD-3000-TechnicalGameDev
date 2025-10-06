@@ -1,7 +1,9 @@
 #include "Bullet.h"
 #include "EventCollision.h"
+#include "EventOut.h"
 #include "NPC.h"
 #include "GameEnd.h"
+#include "WorldManager.h"
 
 Bullet::Bullet(df::Vector position, df::Vector direction, int speed)
 {
@@ -11,6 +13,7 @@ Bullet::Bullet(df::Vector position, df::Vector direction, int speed)
 	setType("bullet");
 	setSprite("Bullet");
 	setSolidness(df::SOFT);
+	setAltitude(3);
 }
 
 int Bullet::eventHandler(const df::Event* p_e)
@@ -20,6 +23,10 @@ int Bullet::eventHandler(const df::Event* p_e)
 			dynamic_cast <const df::EventCollision*> (p_e);
 		collision(p_collision_event);
 		return 1;
+	}
+	if (p_e->getType() == df::OUT_EVENT)
+	{
+		WM.markForDelete(this);
 	}
 	return 0;
 }

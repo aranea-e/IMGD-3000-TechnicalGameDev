@@ -4,8 +4,9 @@
 #include "LogManager.h"
 #include "EventRoom.h"
 #include "EventRoomLoaded.h"
+#include "ResourceManager.h"
 
-void Room::init(std::string r_sprite_name, df::Vector r_pos)
+void Room::init(std::string r_sprite_name, std::string bottom_wall, df::Vector r_pos)
 {
 	setSprite(r_sprite_name);
 	setType("room");
@@ -13,6 +14,8 @@ void Room::init(std::string r_sprite_name, df::Vector r_pos)
 	setAltitude(0);
 	setPosition(df::Vector(DM.getHorizontal() / 2, DM.getVertical() / 2));
 	roomPos = r_pos;
+	bottomWall = df::Animation();
+	bottomWall.setSprite(RM.getSprite(bottom_wall));
 	LM.writeLog("Room Loaded: %s (%d, %d)\n", r_sprite_name.c_str(), roomPos.getX(), roomPos.getY());
 }
 
@@ -20,7 +23,7 @@ Room::Room() : Room(df::Vector(0, 0)) {}
 
 Room::Room(df::Vector r_pos)
 {
-	init(RoomToString(PosToRoom(r_pos)), r_pos);
+	init(RoomToString(PosToRoom(r_pos)), RoomBottomWall(PosToRoom(r_pos)), r_pos);
 }
 
 df::Vector Room::getCurrentPos() {
@@ -55,7 +58,7 @@ void Room::moveRoom(df::Vector r_move)
 		return;
 	}
 	df::Vector old_pos = roomPos;
-	init(RoomToString(PosToRoom(new_pos)), new_pos);
+	init(RoomToString(PosToRoom(new_pos)), RoomBottomWall(PosToRoom(new_pos)), new_pos);
 	EventRoomLoaded* p_rl = new EventRoomLoaded(new_pos, old_pos);
 	WM.onEvent(p_rl);
 }
@@ -93,6 +96,23 @@ std::string Room::RoomToString(RoomType r_type)
 	case MM:
 	default:
 		return "Room_MM";
+	}
+}
+
+std::string Room::RoomBottomWall(RoomType r_type)
+{
+	switch (r_type) {
+	case BL:
+	case BM:
+	case BR:
+		return "Room_W_N";
+	case ML:
+	case MR:
+	case TL:
+	case TM:
+	case MM:
+	default:
+		return "Room_W_D";
 	}
 }
 
@@ -139,4 +159,15 @@ RoomType Room::PosToRoom(df::Vector r_pos)
 			return MM;
 		}
 	}
+}
+
+int Room::draw() {
+	if (getAltitude() == 3)
+	{
+		//LM.writeLog("Drew");
+		setAltitude(0);
+		return bottomWall.draw(df::Vector(getPosition().getX(), getPosition().getY() + 9.5));
+	} 
+	setAltitude(3);
+	return Object::draw();
 }

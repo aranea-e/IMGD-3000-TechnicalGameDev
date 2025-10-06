@@ -695,7 +695,7 @@ void NPC::chaseNPC()
 		else {
 			LM.writeLog("!!err: OOB!!\n");
 		}
-		roamCooldown = 3;
+		roamCooldown = std::rand() % 2 + 1;
 	}
 	roamCooldown--;
 }
