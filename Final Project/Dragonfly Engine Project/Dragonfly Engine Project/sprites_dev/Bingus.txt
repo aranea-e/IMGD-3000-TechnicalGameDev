@@ -1,6 +1,6 @@
 4
 54
-12
+18
 10
 green
  /$$$$$$$  /$$                                        
@@ -15,6 +15,12 @@ green
                         |  $$$$$$/                    
                          \______/                     
                                                       
+           An ASCII murder investigation game         
+                 press P to play again                
+                    press Q to quit                   
+                use W/A/S/D keys to move              
+            use left mouse click to fire and          
+         right mouse click to investigate items       
 $$$$$$$\  $$\                                         
 $$  __$$\ \__|                                        
 $$ |  $$ |$$\ $$$$$$$\   $$$$$$\  $$\   $$\  $$$$$$$\ 
@@ -27,6 +33,12 @@ $$$$$$$  |$$ |$$ |  $$ |\$$$$$$$ |\$$$$$$  |$$$$$$$  |
                         \$$$$$$  |                    
                          \______/                     
                                                       
+           An ASCII murder investigation game         
+                 press P to play again                
+                    press Q to quit                   
+                use W/A/S/D keys to move              
+            use left mouse click to fire and          
+         right mouse click to investigate items       
  _______   __                                         
 /       \ /  |                                        
 $$$$$$$  |$$/  _______    ______   __    __   _______ 
@@ -39,6 +51,12 @@ $$$$$$$/  $$/ $$/   $$/  $$$$$$$ | $$$$$$/  $$$$$$$/
                         /  \__$$ |                    
                         $$    $$/                     
                          $$$$$$/                      
+           An ASCII murder investigation game         
+                 press P to play again                
+                    press Q to quit                   
+                use W/A/S/D keys to move              
+            use left mouse click to fire and          
+         right mouse click to investigate items       
  _______   __                                         
 |       \ |  \                                        
 | $$$$$$$\ \$$ _______    ______   __    __   _______ 
@@ -51,3 +69,9 @@ $$$$$$$/  $$/ $$/   $$/  $$$$$$$ | $$$$$$/  $$$$$$$/
                         |  \__| $$                    
                          \$$    $$                    
                           \$$$$$$                     
+           An ASCII murder investigation game         
+                 press P to play again                
+                    press Q to quit                   
+                use W/A/S/D keys to move              
+            use left mouse click to fire and          
+         right mouse click to investigate items       

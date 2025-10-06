@@ -70,6 +70,10 @@ void loadResources(void) {
 
 
     RM.loadSprite("sprites_dev/Bingus.txt", "Bingus");
+    RM.loadSprite("sprites_dev/Death_Screen_dev.txt", "Death");
+    RM.loadSprite("sprites_dev/Win_Screen_dev.txt", "Win");
+    RM.loadSprite("sprites_dev/Innocent_Death_Screen_dev.txt", "Murderer");
+    RM.loadSprite("sprites_dev/GameOver_dev.txt", "End");
     RM.loadSprite("sprites_dev/Bullet_dev.txt", "Bullet");
 }
 
