@@ -178,11 +178,11 @@ void Player::loaded(const EventRoomLoaded* p_load_event)
 
     if (p_load_event->getPos().getY() > p_load_event->getOldPos().getY())
     {
-        new_pos.setY(new_pos.getY() - 13);
+        new_pos.setY(new_pos.getY() - 14);
     }
     else if (p_load_event->getPos().getY() < p_load_event->getOldPos().getY())
     {
-        new_pos.setY(new_pos.getY() + 13);
+        new_pos.setY(new_pos.getY() + 14);
     }
 
     WM.moveObject(this, new_pos);
