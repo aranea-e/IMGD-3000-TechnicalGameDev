@@ -1,7 +1,8 @@
 **Bingus**
-
-An ASCII murder investigation game.
 -
+An ASCII murder investigation game.
+
+
 How many people can you save?
 
 Team: wet - Ian Perry (ihperry@wpi.edu) & Devin Mihaichuk (drmihaichuk@wpi.edu)
