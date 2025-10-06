@@ -5,7 +5,7 @@ An ASCII murder investigation game.
 How many people can you save?
 
 ## Submission Details:
-**Team**: wet - [Ian Perry](ihperry@wpi.edu) & [Devin Mihaichuk](drmihaichuk@wpi.edu)
+**Team**: wet - Ian Perry (ihperry@wpi.edu) & Devin Mihaichuk (drmihaichuk@wpi.edu)
 
 **Platform**: Windows
 
