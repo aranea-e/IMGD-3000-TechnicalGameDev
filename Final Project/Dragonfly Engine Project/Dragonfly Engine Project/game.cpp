@@ -11,48 +11,147 @@
 #include "GameStart.h"
 
 void loadResources(void) {
-    // Load Character Sprites
-    RM.loadSprite("sprites_dev/PC_dev.txt", "PC");
-    RM.loadSprite("sprites_dev/NPC_dev.txt", "NPC");
-    RM.loadSprite("sprites_dev/NPC_dev.txt", "NPC_R");
+    // Load Player Sprites
+    RM.loadSprite("sprites_dev/PCR_final.txt", "PC_right");
+    RM.loadSprite("sprites_dev/PCL_final.txt", "PC_left");
+    RM.loadSprite("sprites_dev/PC_walkR_final.txt", "PC_walk_right");
+    RM.loadSprite("sprites_dev/PC_walkL_final.txt", "PC_walk_left");
+    RM.loadSprite("sprites_dev/PC_shootR_final.txt", "PC_shoot_right");
+    RM.loadSprite("sprites_dev/PC_shootL_final.txt", "PC_shoot_left");
+
+    // Load NPC right idle sprites
+    RM.loadSprite("sprites_dev/NPCR_final.txt", "NPC");
+    RM.loadSprite("sprites_dev/NPCR_final.txt", "NPC_R");
     RM.getSprite("NPC_R")->setColor(df::RED);
-    RM.loadSprite("sprites_dev/NPC_dev.txt", "NPC_G");
+    RM.loadSprite("sprites_dev/NPCR_final.txt", "NPC_G");
     RM.getSprite("NPC_G")->setColor(df::GREEN);
-    RM.loadSprite("sprites_dev/NPC_dev.txt", "NPC_B");
+    RM.loadSprite("sprites_dev/NPCR_final.txt", "NPC_B");
     RM.getSprite("NPC_B")->setColor(df::BLUE);
-    RM.loadSprite("sprites_dev/NPC_dev.txt", "NPC_C");
+    RM.loadSprite("sprites_dev/NPCR_final.txt", "NPC_C");
     RM.getSprite("NPC_C")->setColor(df::CYAN);
-    RM.loadSprite("sprites_dev/NPC_dev.txt", "NPC_Y");
+    RM.loadSprite("sprites_dev/NPCR_final.txt", "NPC_Y");
     RM.getSprite("NPC_Y")->setColor(df::YELLOW);
-    RM.loadSprite("sprites_dev/NPC_dev.txt", "NPC_M");
+    RM.loadSprite("sprites_dev/NPCR_final.txt", "NPC_M");
     RM.getSprite("NPC_M")->setColor(df::MAGENTA);
 
-    RM.loadSprite("sprites_dev/Murd_dev.txt", "Murd");
-    RM.loadSprite("sprites_dev/Murd_dev.txt", "Murd_R");
+    // Load NPC left idle sprites
+    RM.loadSprite("sprites_dev/NPCL_final.txt", "NPC_left");
+    RM.loadSprite("sprites_dev/NPCL_final.txt", "NPC_left_R");
+    RM.getSprite("NPC_R")->setColor(df::RED);
+    RM.loadSprite("sprites_dev/NPCL_final.txt", "NPC_left_G");
+    RM.getSprite("NPC_G")->setColor(df::GREEN);
+    RM.loadSprite("sprites_dev/NPCL_final.txt", "NPC_left_B");
+    RM.getSprite("NPC_B")->setColor(df::BLUE);
+    RM.loadSprite("sprites_dev/NPCL_final.txt", "NPC_left_C");
+    RM.getSprite("NPC_C")->setColor(df::CYAN);
+    RM.loadSprite("sprites_dev/NPCL_final.txt", "NPC_left_Y");
+    RM.getSprite("NPC_Y")->setColor(df::YELLOW);
+    RM.loadSprite("sprites_dev/NPCL_final.txt", "NPC_left_M");
+    RM.getSprite("NPC_M")->setColor(df::MAGENTA);
+
+    // Load NPC right roam sprites
+    RM.loadSprite("sprites_dev/NPC_roamR_final.txt", "NPC_roam_right");
+    RM.loadSprite("sprites_dev/NPC_roamR_final.txt", "NPC_roam_right_R");
+    RM.getSprite("NPC_roam_right_R")->setColor(df::RED);
+    RM.loadSprite("sprites_dev/NPC_roamR_final.txt", "NPC_roam_right_G");
+    RM.getSprite("NPC_roam_right_G")->setColor(df::GREEN);
+    RM.loadSprite("sprites_dev/NPC_roamR_final.txt", "NPC_roam_right_B");
+    RM.getSprite("NPC_roam_right_B")->setColor(df::BLUE);
+    RM.loadSprite("sprites_dev/NPC_roamR_final.txt", "NPC_roam_right_C");
+    RM.getSprite("NPC_roam_right_C")->setColor(df::CYAN);
+    RM.loadSprite("sprites_dev/NPC_roamR_final.txt", "NPC_roam_right_Y");
+    RM.getSprite("NPC_roam_right_Y")->setColor(df::YELLOW);
+    RM.loadSprite("sprites_dev/NPC_roamR_final.txt", "NPC_roam_right_M");
+    RM.getSprite("NPC_roam_right_M")->setColor(df::MAGENTA);
+
+    // load NPC left roam sprites
+    RM.loadSprite("sprites_dev/NPC_roamL_final.txt", "NPC_roam_left");
+    RM.loadSprite("sprites_dev/NPC_roamL_final.txt", "NPC_roam_left_R");
+    RM.getSprite("NPC_roam_left_R")->setColor(df::RED);
+    RM.loadSprite("sprites_dev/NPC_roamL_final.txt", "NPC_roam_left_G");
+    RM.getSprite("NPC_roam_left_G")->setColor(df::GREEN);
+    RM.loadSprite("sprites_dev/NPC_roamL_final.txt", "NPC_roam_left_B");
+    RM.getSprite("NPC_roam_left_B")->setColor(df::BLUE);
+    RM.loadSprite("sprites_dev/NPC_roamL_final.txt", "NPC_roam_left_C");
+    RM.getSprite("NPC_roam_left_C")->setColor(df::CYAN);
+    RM.loadSprite("sprites_dev/NPC_roamL_final.txt", "NPC_roam_left_Y");
+    RM.getSprite("NPC_roam_left_Y")->setColor(df::YELLOW);
+    RM.loadSprite("sprites_dev/NPC_roamL_final.txt", "NPC_roam_left_M");
+    RM.getSprite("NPC_roam_left_M")->setColor(df::MAGENTA);
+
+    // Load NPC right panic sprites
+    RM.loadSprite("sprites_dev/NPC_panicR_final.txt", "NPC_panic_right");
+    RM.loadSprite("sprites_dev/NPC_panicR_final.txt", "NPC_panic_right_R");
+    RM.getSprite("NPC_panic_right_R")->setColor(df::RED);
+    RM.loadSprite("sprites_dev/NPC_panicR_final.txt", "NPC_panic_right_G");
+    RM.getSprite("NPC_panic_right_G")->setColor(df::GREEN);
+    RM.loadSprite("sprites_dev/NPC_panicR_final.txt", "NPC_panic_right_B");
+    RM.getSprite("NPC_panic_right_B")->setColor(df::BLUE);
+    RM.loadSprite("sprites_dev/NPC_panicR_final.txt", "NPC_panic_right_C");
+    RM.getSprite("NPC_panic_right_C")->setColor(df::CYAN);
+    RM.loadSprite("sprites_dev/NPC_panicR_final.txt", "NPC_panic_right_Y");
+    RM.getSprite("NPC_panic_right_Y")->setColor(df::YELLOW);
+    RM.loadSprite("sprites_dev/NPC_panicR_final.txt", "NPC_panic_right_M");
+    RM.getSprite("NPC_panic_right_M")->setColor(df::MAGENTA);
+
+    // Load NPC left panic sprites
+    RM.loadSprite("sprites_dev/NPC_panicL_final.txt", "NPC_panic_left");
+    RM.loadSprite("sprites_dev/NPC_panicL_final.txt", "NPC_panic_left_R");
+    RM.getSprite("NPC_panic_left_R")->setColor(df::RED);
+    RM.loadSprite("sprites_dev/NPC_panicL_final.txt", "NPC_panic_left_G");
+    RM.getSprite("NPC_panic_left_G")->setColor(df::GREEN);
+    RM.loadSprite("sprites_dev/NPC_panicL_final.txt", "NPC_panic_left_B");
+    RM.getSprite("NPC_panic_left_B")->setColor(df::BLUE);
+    RM.loadSprite("sprites_dev/NPC_panicL_final.txt", "NPC_panic_left_C");
+    RM.getSprite("NPC_panic_left_C")->setColor(df::CYAN);
+    RM.loadSprite("sprites_dev/NPC_panicL_final.txt", "NPC_panic_left_Y");
+    RM.getSprite("NPC_panic_left_Y")->setColor(df::YELLOW);
+    RM.loadSprite("sprites_dev/NPC_panicL_final.txt", "NPC_panic_left_M");
+    RM.getSprite("NPC_panic_left_M")->setColor(df::MAGENTA);
+
+    // Load right murder sprites
+    RM.loadSprite("sprites_dev/MurdR_final.txt", "Murd");
+    RM.loadSprite("sprites_dev/MurdR_final.txt", "Murd_R");
     RM.getSprite("Murd_R")->setColor(df::RED);
-    RM.loadSprite("sprites_dev/Murd_dev.txt", "Murd_G");
+    RM.loadSprite("sprites_dev/MurdR_final.txt", "Murd_G");
     RM.getSprite("Murd_G")->setColor(df::GREEN);
-    RM.loadSprite("sprites_dev/Murd_dev.txt", "Murd_B");
+    RM.loadSprite("sprites_dev/MurdR_final.txt", "Murd_B");
     RM.getSprite("Murd_B")->setColor(df::BLUE);
-    RM.loadSprite("sprites_dev/Murd_dev.txt", "Murd_C");
+    RM.loadSprite("sprites_dev/MurdR_final.txt", "Murd_C");
     RM.getSprite("Murd_C")->setColor(df::CYAN);
-    RM.loadSprite("sprites_dev/Murd_dev.txt", "Murd_Y");
+    RM.loadSprite("sprites_dev/MurdR_final.txt", "Murd_Y");
     RM.getSprite("Murd_Y")->setColor(df::YELLOW);
-    RM.loadSprite("sprites_dev/Murd_dev.txt", "Murd_M");
+    RM.loadSprite("sprites_dev/MurdR_final.txt", "Murd_M");
     RM.getSprite("Murd_M")->setColor(df::MAGENTA);
 
-    RM.loadSprite("sprites_dev/Dead_dev.txt", "Dead");
-    RM.loadSprite("sprites_dev/Dead_dev.txt", "Dead_R");
+    // Load left murder sprites
+    RM.loadSprite("sprites_dev/MurdL_final.txt", "Murd_left");
+    RM.loadSprite("sprites_dev/MurdL_final.txt", "Murd_left_R");
+    RM.getSprite("Murd_left_R")->setColor(df::RED);
+    RM.loadSprite("sprites_dev/MurdL_final.txt", "Murd_left_G");
+    RM.getSprite("Murd_left_G")->setColor(df::GREEN);
+    RM.loadSprite("sprites_dev/MurdL_final.txt", "Murd_left_B");
+    RM.getSprite("Murd_left_B")->setColor(df::BLUE);
+    RM.loadSprite("sprites_dev/MurdL_final.txt", "Murd_left_C");
+    RM.getSprite("Murd_left_C")->setColor(df::CYAN);
+    RM.loadSprite("sprites_dev/MurdL_final.txt", "Murd_left_Y");
+    RM.getSprite("Murd_left_Y")->setColor(df::YELLOW);
+    RM.loadSprite("sprites_dev/MurdL_final.txt", "Murd_left_M");
+    RM.getSprite("Murd_left_M")->setColor(df::MAGENTA);
+
+    // Load NPC Death sprites
+    RM.loadSprite("sprites_dev/Dead_final.txt", "Dead");
+    RM.loadSprite("sprites_dev/Dead_final.txt", "Dead_R");
     RM.getSprite("Dead_R")->setColor(df::RED);
-    RM.loadSprite("sprites_dev/Dead_dev.txt", "Dead_G");
+    RM.loadSprite("sprites_dev/Dead_final.txt", "Dead_G");
     RM.getSprite("Dead_G")->setColor(df::GREEN);
-    RM.loadSprite("sprites_dev/Dead_dev.txt", "Dead_B");
+    RM.loadSprite("sprites_dev/Dead_final.txt", "Dead_B");
     RM.getSprite("Dead_B")->setColor(df::BLUE);
-    RM.loadSprite("sprites_dev/Dead_dev.txt", "Dead_C");
+    RM.loadSprite("sprites_dev/Dead_final.txt", "Dead_C");
     RM.getSprite("Dead_C")->setColor(df::CYAN);
-    RM.loadSprite("sprites_dev/Dead_dev.txt", "Dead_Y");
+    RM.loadSprite("sprites_dev/Dead_final.txt", "Dead_Y");
     RM.getSprite("Dead_Y")->setColor(df::YELLOW);
-    RM.loadSprite("sprites_dev/Dead_dev.txt", "Dead_M");
+    RM.loadSprite("sprites_dev/Dead_final.txt", "Dead_M");
     RM.getSprite("Dead_M")->setColor(df::MAGENTA);
 
     // Load Room Sprites.
