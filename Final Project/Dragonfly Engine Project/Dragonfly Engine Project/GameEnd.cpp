@@ -11,6 +11,7 @@
 #include "NPC.h"
 #include "GameManager.h"
 #include "Windows.h"
+#include "Clue.h"
 
 GameEnd::GameEnd(int type)
 {
@@ -52,6 +53,8 @@ void GameEnd::restart() {
 	new NPC(df::CYAN, df::Vector(2, 2));
 	new NPC(df::YELLOW, df::Vector(2, 2));
 	new NPC(df::MAGENTA, df::Vector(2, 2));
+
+	new Clue;
 
 	NPC* murd = (NPC*)WM.objectsOfType("NPC")[std::rand() % 6];
 	murd->setMurd();

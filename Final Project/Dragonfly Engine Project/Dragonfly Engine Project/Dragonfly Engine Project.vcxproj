@@ -86,6 +86,7 @@
     <ClInclude Include="Box.h" />
     <ClInclude Include="Bullet.h" />
     <ClInclude Include="Clock.h" />
+    <ClInclude Include="Clue.h" />
     <ClInclude Include="Color.h" />
     <ClInclude Include="Cutscene.h" />
     <ClInclude Include="DisplayManager.h" />
@@ -96,6 +97,7 @@
     <ClInclude Include="EventOut.h" />
     <ClInclude Include="EventRoom.h" />
     <ClInclude Include="EventRoomLoaded.h" />
+    <ClInclude Include="EventSearch.h" />
     <ClInclude Include="EventStep.h" />
     <ClInclude Include="Frame.h" />
     <ClInclude Include="GameEnd.h" />
@@ -122,6 +124,7 @@
     <ClCompile Include="Box.cpp" />
     <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="Clock.cpp" />
+    <ClCompile Include="Clue.cpp" />
     <ClCompile Include="Cutscene.cpp" />
     <ClCompile Include="DisplayManager.cpp" />
     <ClCompile Include="Event.cpp" />
@@ -131,6 +134,7 @@
     <ClCompile Include="EventOut.cpp" />
     <ClCompile Include="EventRoom.cpp" />
     <ClCompile Include="EventRoomLoaded.cpp" />
+    <ClCompile Include="EventSearch.cpp" />
     <ClCompile Include="EventStep.cpp" />
     <ClCompile Include="Frame.cpp" />
     <ClCompile Include="game.cpp" />

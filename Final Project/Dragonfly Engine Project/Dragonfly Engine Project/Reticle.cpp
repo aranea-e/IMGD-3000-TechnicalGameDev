@@ -1,8 +1,10 @@
 #include "EventMouse.h"
+#include "EventStep.h"
 #include "DisplayManager.h"
 #include "WorldManager.h"
 
 #include "Reticle.h"
+#include "EventSearch.h"
 
 Reticle::Reticle() {
     setType("Reticle");
@@ -25,13 +27,54 @@ int Reticle::eventHandler(const df::Event* p_e) {
             setPosition(p_mouse_event->getMousePosition());
             return 1;
         }
+        if (p_mouse_event->getMouseAction() == df::CLICKED) {
+            if (p_mouse_event->getMouseButton() == df::Mouse::RIGHT)
+            {
+                if (!searching)
+                {
+                    setSprite("Search_Cursor");
+                    searching = true;
+                    searchFrames = 0;
+                }
+                else {
+                    searching = false;
+                }
+            }
+            
+            if (p_mouse_event->getMouseButton() == df::Mouse::LEFT)
+            {
+                searching = false;
+            }
+        }
+    }
+    if (p_e->getType() == df::STEP_EVENT)
+    {
+        if (searching)
+        {
+            searchFrames++;
+            if (searchFrames >= 150) {
+                searching = false;
+                EventSearch* e_s = new EventSearch();
+                WM.onEvent(e_s);
+            }
+        }
     }
 
     // If get here, have ignored this event.
     return 0;
 }
 
+bool Reticle::getSearch() const
+{
+    return searching;
+}
+
 // Draw reticle on window.
 int Reticle::draw() {
-    return DM.drawCh(getPosition(), RETICLE_CHAR, df::RED);
+    if (searching) {
+        return Object::draw();
+    }
+    else {
+        return DM.drawCh(getPosition(), RETICLE_CHAR, df::RED);
+    }
 }

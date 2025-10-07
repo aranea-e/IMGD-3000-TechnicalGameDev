@@ -7,6 +7,7 @@
 #include "EventRoomLoaded.h"
 #include "GameEnd.h"
 #include "Bullet.h"
+#include "Reticle.h"
 
 Player::Player() {
     // set sprite
@@ -55,10 +56,17 @@ int Player::eventHandler(const df::Event* p_e) {
     return 0;
 }
 
+void Player::findSearch()
+{
+    Reticle* r = (Reticle*)WM.objectsOfType("Reticle")[0];
+    searching = r->getSearch();
+}
+
 // step event for Hero to update private attributes
 void Player::step() {
     // if dx or dy is not zero, call move to update hero position
-    if (dx || dy) move(dx, dy);
+    findSearch();
+    if ((dx || dy) && !searching) move(dx, dy);
     // decrease hero's move cooldown every step
     move_countdown--;
     if (move_countdown < 0)
