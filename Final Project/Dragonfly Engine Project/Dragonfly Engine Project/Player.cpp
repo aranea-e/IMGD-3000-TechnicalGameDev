@@ -11,7 +11,7 @@
 
 Player::Player() {
     // set sprite
-    setSprite("PC");
+    setSprite("PC_right");
     // set type
     setType("Player");
     // set position
