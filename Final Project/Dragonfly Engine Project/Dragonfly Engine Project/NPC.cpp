@@ -7,7 +7,7 @@
 #include "EventStep.h"
 #include "LogManager.h"
 #include "EventRoomLoaded.h"
-#include "GameEnd.h"
+#include "Cutscene.h"
 #include "ObjectList.h"
 
 NPC::NPC(df::Color npc_color, df::Vector pos)
@@ -112,6 +112,11 @@ std::string NPC::getColorString() const
 	default:
 		return "White";
 	}
+}
+
+df::Color NPC::getColor() const
+{
+	return color;
 }
 
 void NPC::setRoomPos(df::Vector new_room) {
@@ -388,7 +393,7 @@ void NPC::step() {
 		if (abs(getPosition().getX() - playerPos.getX()) < 2 && 
 			abs(getPosition().getY() - playerPos.getY()) < 2)
 		{
-			new GameEnd(1);
+			new Cutscene(1, getColor());
 		}
 		for (int i = 0; i < npcs.getCount(); i++)
 		{

@@ -34,6 +34,7 @@ public:
 	void setColor(df::Color npc_color);
 	void updateSprite();
 	std::string getColorString() const;
+	df::Color getColor() const;
 	void setRoomPos(df::Vector new_room);
 	df::Vector getRoomPos() const;
 	void die();
