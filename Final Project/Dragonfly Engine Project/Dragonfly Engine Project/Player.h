@@ -10,6 +10,7 @@ private:
 	int dy;
 	int move_slowdown;
 	int move_countdown;
+	bool searching;
 	void step();
 	void move(int dx, int dy);
 	void kbd(const df::EventKeyboard* p_keyboard_event);
@@ -20,4 +21,5 @@ private:
 public:
 	Player();
 	int eventHandler(const df::Event* p_e) override;
+	void findSearch();
 };

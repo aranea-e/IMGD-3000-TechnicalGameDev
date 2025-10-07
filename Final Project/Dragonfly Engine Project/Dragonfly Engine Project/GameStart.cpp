@@ -7,6 +7,7 @@
 #include "WorldManager.h"
 #include "LogManager.h"
 #include "GameEnd.h"
+#include "Clue.h"
 
 GameStart::GameStart() {
 	setSprite("Bingus");
@@ -40,6 +41,7 @@ void GameStart::start() {
 	new NPC(df::CYAN, df::Vector(2, 2));
 	new NPC(df::YELLOW, df::Vector(2, 2));
 	new NPC(df::MAGENTA, df::Vector(2, 2));
+	new Clue;
 
 	//NPC* murd = (NPC*)WM.objectsOfType("NPC")[0];
 	NPC* murd = (NPC*)WM.objectsOfType("NPC")[std::rand() % 6];

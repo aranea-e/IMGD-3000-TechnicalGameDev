@@ -59,4 +59,7 @@ public:
 										// Move to an exit. Speed is # of frames between moves. If nearest = true, move to nearest exit.
 	virtual void chaseNPC();			// Move towards nearest NPC other than self
 	virtual void chasePlayer();			// Move towards the player
+
+
+	int draw() override;
 };

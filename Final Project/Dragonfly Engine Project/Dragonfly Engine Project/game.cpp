@@ -14,46 +14,8 @@ void loadResources(void) {
     // Load Character Sprites
     RM.loadSprite("sprites_dev/PC_dev.txt", "PC");
     RM.loadSprite("sprites_dev/NPC_dev.txt", "NPC");
-    RM.loadSprite("sprites_dev/NPC_dev.txt", "NPC_R");
-    RM.getSprite("NPC_R")->setColor(df::RED);
-    RM.loadSprite("sprites_dev/NPC_dev.txt", "NPC_G");
-    RM.getSprite("NPC_G")->setColor(df::GREEN);
-    RM.loadSprite("sprites_dev/NPC_dev.txt", "NPC_B");
-    RM.getSprite("NPC_B")->setColor(df::BLUE);
-    RM.loadSprite("sprites_dev/NPC_dev.txt", "NPC_C");
-    RM.getSprite("NPC_C")->setColor(df::CYAN);
-    RM.loadSprite("sprites_dev/NPC_dev.txt", "NPC_Y");
-    RM.getSprite("NPC_Y")->setColor(df::YELLOW);
-    RM.loadSprite("sprites_dev/NPC_dev.txt", "NPC_M");
-    RM.getSprite("NPC_M")->setColor(df::MAGENTA);
-
     RM.loadSprite("sprites_dev/Murd_dev.txt", "Murd");
-    RM.loadSprite("sprites_dev/Murd_dev.txt", "Murd_R");
-    RM.getSprite("Murd_R")->setColor(df::RED);
-    RM.loadSprite("sprites_dev/Murd_dev.txt", "Murd_G");
-    RM.getSprite("Murd_G")->setColor(df::GREEN);
-    RM.loadSprite("sprites_dev/Murd_dev.txt", "Murd_B");
-    RM.getSprite("Murd_B")->setColor(df::BLUE);
-    RM.loadSprite("sprites_dev/Murd_dev.txt", "Murd_C");
-    RM.getSprite("Murd_C")->setColor(df::CYAN);
-    RM.loadSprite("sprites_dev/Murd_dev.txt", "Murd_Y");
-    RM.getSprite("Murd_Y")->setColor(df::YELLOW);
-    RM.loadSprite("sprites_dev/Murd_dev.txt", "Murd_M");
-    RM.getSprite("Murd_M")->setColor(df::MAGENTA);
-
     RM.loadSprite("sprites_dev/Dead_dev.txt", "Dead");
-    RM.loadSprite("sprites_dev/Dead_dev.txt", "Dead_R");
-    RM.getSprite("Dead_R")->setColor(df::RED);
-    RM.loadSprite("sprites_dev/Dead_dev.txt", "Dead_G");
-    RM.getSprite("Dead_G")->setColor(df::GREEN);
-    RM.loadSprite("sprites_dev/Dead_dev.txt", "Dead_B");
-    RM.getSprite("Dead_B")->setColor(df::BLUE);
-    RM.loadSprite("sprites_dev/Dead_dev.txt", "Dead_C");
-    RM.getSprite("Dead_C")->setColor(df::CYAN);
-    RM.loadSprite("sprites_dev/Dead_dev.txt", "Dead_Y");
-    RM.getSprite("Dead_Y")->setColor(df::YELLOW);
-    RM.loadSprite("sprites_dev/Dead_dev.txt", "Dead_M");
-    RM.getSprite("Dead_M")->setColor(df::MAGENTA);
 
     // Load Room Sprites.
     RM.loadSprite("sprites_dev/Room_BL_dev.txt", "Room_BL");
@@ -79,11 +41,17 @@ void loadResources(void) {
     RM.loadSprite("sprites/Cutscene_Death.txt", "Death_Cutscene");
     RM.loadSprite("sprites/Cutscene_Win.txt", "Win_Cutscene");
     RM.loadSprite("sprites/Cutscene_Inno.txt", "Inno_Cutscene");
+
+    RM.loadSprite("sprites/Clue_H.txt", "Clue_H");
+    RM.loadSprite("sprites/Clue_V.txt", "Clue_V");
+    RM.loadSprite("sprites/Clue_Final.txt", "Clue_Final");
+
+    RM.loadSprite("sprites/Search_Cursor.txt", "Search_Cursor");
 }
 
 // Populate world with some objects.
 void populateWorld() {
-    // Load Sounds
+    // Load Soundsddddddd
     RM.loadSound("sounds_dev/Sound1_dev.wav", "Sound1");
     RM.loadSound("sounds_dev/Sound2_dev.wav", "Sound2");
     RM.loadSound("sounds_dev/Sound3_dev.wav", "Sound3");

@@ -9,6 +9,7 @@
 #include "EventRoomLoaded.h"
 #include "Cutscene.h"
 #include "ObjectList.h"
+#include "ResourceManager.h"
 
 NPC::NPC(df::Color npc_color, df::Vector pos)
 {
@@ -50,47 +51,20 @@ NPC::NPC(df::Color npc_color, df::Vector pos)
 
 void NPC::setColor(df::Color npc_color) {
 	color = npc_color;
-	std::string spriteTag;
-	switch (color) {
-	case df::RED:
-		spriteTag = "_R";
-		break;
-	case df::GREEN:
-		spriteTag = "_G";
-		break;
-	case df::BLUE:
-		spriteTag = "_B";
-		break;
-	case df::CYAN:
-		spriteTag = "_C";
-		break;
-	case df::YELLOW:
-		spriteTag = "_Y";
-		break;
-	case df::MAGENTA:
-		spriteTag = "_M";
-		break;
-	case df::WHITE:
-	default:
-		spriteTag = "";
-	}
+}
 
-	if (!alive) 
+void NPC::updateSprite() {
+	if (!alive)
 	{
-		setSprite("Dead" + spriteTag);
+		setSprite("Dead");
 	}
 	else if (isHunting)
 	{
-		setSprite("Murd" + spriteTag);
+		setSprite("Murd");
 	}
 	else {
-		setSprite("NPC" + spriteTag);
+		setSprite("NPC");
 	}
-}
-
-void NPC::updateSprite()
-{
-	setColor(color);
 }
 
 std::string NPC::getColorString() const
@@ -743,4 +717,11 @@ void NPC::chasePlayer()
 		roamCooldown = 1;
 	}
 	roamCooldown--;
+}
+
+int NPC::draw()
+{
+	df::Sprite* p_s = RM.getSprite(getAnimation().getSprite()->getLabel());
+	p_s->setColor(color);
+	return Object::draw();
 }
