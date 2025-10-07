@@ -41,11 +41,15 @@ int Cutscene::eventHandler(const df::Event* p_e) {
 void Cutscene::setColor(df::Color c) {
 	df::Sprite* spr;
 	switch (type) {
-	case 0:
-	case 1:
-	case 2:
-	default:
+	case 1:	// Killed
 		spr = RM.getSprite("Death_Cutscene");
+		break;
+	case 2:	// Shot Inno
+		spr = RM.getSprite("Inno_Cutscene");
+		break;
+	case 0:	// Won
+	default:
+		spr = RM.getSprite("Win_Cutscene");
 		break;
 	}
 	spr->setColor(c);

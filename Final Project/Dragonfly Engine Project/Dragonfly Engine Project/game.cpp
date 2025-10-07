@@ -77,6 +77,8 @@ void loadResources(void) {
     RM.loadSprite("sprites_dev/Bullet_dev.txt", "Bullet");
 
     RM.loadSprite("sprites/Cutscene_Death.txt", "Death_Cutscene");
+    RM.loadSprite("sprites/Cutscene_Win.txt", "Win_Cutscene");
+    RM.loadSprite("sprites/Cutscene_Inno.txt", "Inno_Cutscene");
 }
 
 // Populate world with some objects.
