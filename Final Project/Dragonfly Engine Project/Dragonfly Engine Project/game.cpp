@@ -72,10 +72,17 @@ void loadResources(void) {
 
 // Populate world with some objects.
 void populateWorld() {
-    // Load Soundsddddddd
-    RM.loadSound("sounds_dev/Sound1_dev.wav", "Sound1");
-    RM.loadSound("sounds_dev/Sound2_dev.wav", "Sound2");
-    RM.loadSound("sounds_dev/Sound3_dev.wav", "Sound3");
+    // Load Sounds
+    RM.loadSound("sounds/start.wav", "Start");
+    RM.loadSound("sounds/step.wav", "Step");
+    RM.loadSound("sounds/run.wav", "Run");
+    RM.loadSound("sounds/clue.wav", "Clue");
+    RM.loadSound("sounds/shot.wav", "Shot");
+    RM.loadSound("sounds/npc_death.wav", "NPC_Death");
+    RM.loadSound("sounds/npc_shot.wav", "NPC_Shot");
+    RM.loadSound("sounds/player_death.wav", "Player_Death");
+    RM.loadSound("sounds/win.wav", "Win");
+    RM.loadSound("sounds/loss.wav", "Loss");
 
     // Load Music
     RM.loadMusic("sounds/Backing Track.wav", "Music");

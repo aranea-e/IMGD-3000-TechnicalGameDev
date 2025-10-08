@@ -63,6 +63,8 @@ void GameEnd::restart() {
 
 	new Clue;
 
+	RM.getSound("Start")->play();
+
 	NPC* murd = (NPC*)WM.objectsOfType("NPC")[std::rand() % 6];
 	murd->setMurd();
 }
@@ -79,17 +81,17 @@ void GameEnd::end() {
 
 	switch (m_type) {
 	case 0:
-		RM.getSound("Sound1")->play();
+		RM.getSound("Win")->play();
 		setSprite("Win");
 		LM.writeLog("Game End: Player Won\n");
 		break;
 	case 1:
-		RM.getSound("Sound2")->play();
+		RM.getSound("Player_Death")->play();
 		setSprite("Death");
 		LM.writeLog("Game End: Player Killed\n");
 		break;
 	case 2:
-		RM.getSound("Sound3")->play();
+		RM.getSound("Loss")->play();
 		setSprite("Murderer");
 		LM.writeLog("Game End: Player Shot Innocent\n");
 		break;

@@ -10,6 +10,7 @@
 #include "Cutscene.h"
 #include "ObjectList.h"
 #include "ResourceManager.h"
+#include "GameManager.h"
 
 NPC::NPC(df::Color npc_color, df::Vector pos)
 {
@@ -18,7 +19,7 @@ NPC::NPC(df::Color npc_color, df::Vector pos)
 	alive = true;
 
 	roomPos = pos;
-	mapPos = df::Vector((float)(std::rand() % (DM.getHorizontal() - 42) + 21), (float)(std::rand() % (DM.getVertical() - 10) + 5));
+	setMapPos(df::Vector((float)(std::rand() % (DM.getHorizontal() - 42) + 21), (float)(std::rand() % (DM.getVertical() - 10) + 5)));
 	setPosition(mapPos);
 	patience = -1;
 	stateCooldown = 0;
@@ -123,9 +124,19 @@ df::Vector NPC::getRoomPos() const {
 	return roomPos;
 }
 
+void NPC::setMapPos(df::Vector new_mpos)
+{
+	mapPos = new_mpos;
+}
+
 void NPC::die()
 {
+	if (inLoadedRoom() && alive)
+	{
+		RM.getSound("NPC_Death")->play();
+	}
 	alive = false;
+	setAltitude(1);
 	updateSprite();
 }
 
@@ -158,24 +169,33 @@ bool NPC::getAlive() const
 }
 
 void NPC::loadNPC() {
+	getHunt();
+	df::Vector originalMapPos = mapPos;
 	if (!loaded && (beingChased()))
 	{
-		setPosition(df::Vector((float)(std::rand() % (DM.getHorizontal() - 32) + 26), (float)(std::rand() % (DM.getVertical() ) + 10)));
+		setMapPos(df::Vector((float)(std::rand() % (DM.getHorizontal() - 32) + 26), (float)(std::rand() % (DM.getVertical() ) + 10)));
 	}
-	if (!loaded && (getHunt()))
+	if (isHunting)
 	{
-		setPosition(df::Vector((float)(std::rand() % (DM.getHorizontal() - 22) + 31), (float)(std::rand() % (DM.getVertical() - 10) + 15)));
+		setMapPos(df::Vector((DM.getHorizontal() / 2) + ((float)(std::rand() % 5 - 2)), (DM.getVertical() / 2) + ((float)(std::rand() % 3 - 1))));
+	}
+	if (!loaded)
+	{
+		setPosition(mapPos);
+	}
+	else {
+		setMapPos(originalMapPos);
 	}
 	loaded = true;
-	setPosition(mapPos);
 }
 
 void NPC::unloadNPC() {
 	if (loaded)
 	{
-		mapPos = getPosition();
+		setMapPos(getPosition());
 		//LM.writeLog("Stored pos: (%f, %f)\n", mapPos.getX(), mapPos.getY());
 	}
+	if (getMurd())
 	loaded = false;
 	setPosition(df::Vector(-100, -100));
 }
@@ -429,9 +449,7 @@ void NPC::stall() {
 	}
 	if (patience == initPatience - 60)
 	{
-		loadNPC();
-		setPosition(df::Vector((float)(std::rand() % (DM.getHorizontal() - 42) + 21), (float)(std::rand() % (DM.getVertical() - 10) + 5)));
-		unloadNPC();
+		setMapPos(df::Vector((float)(std::rand() % (DM.getHorizontal() - 42) + 21), (float)(std::rand() % (DM.getVertical() - 10) + 5)));
 	}
 
 	if (patience == 0) {
@@ -447,28 +465,26 @@ void NPC::stall() {
 		}
 		setRoomPos(new_vec);
 
-		loadNPC();
 		if (inLoadedRoom())
 		{
 			switch (roll) {
 			case 0:	// West
-				setPosition(df::Vector((float)(DM.getHorizontal() - 21), (float)(DM.getVertical() / 2)));
+				setMapPos(df::Vector((float)(DM.getHorizontal() - 21), (float)(DM.getVertical() / 2)));
 				break;
 			case 1:	// North
-				setPosition(df::Vector((float)(DM.getHorizontal() / 2), (float)(DM.getVertical() - 5)));
+				setMapPos(df::Vector((float)(DM.getHorizontal() / 2), (float)(DM.getVertical() - 5)));
 				break;
 			case 2:	// East
-				setPosition(df::Vector((float)(21), (float)(DM.getVertical() / 2)));
+				setMapPos(df::Vector((float)(21), (float)(DM.getVertical() / 2)));
 				break;
 			case 3:	// South
-				setPosition(df::Vector((float)(DM.getHorizontal() / 2), (float)(5)));
+				setMapPos(df::Vector((float)(DM.getHorizontal() / 2), (float)(5)));
 				break;
 			}
 		}
 		else {
-			setPosition(df::Vector((float)(std::rand() % (DM.getHorizontal() - 42) + 21), (float)(std::rand() % (DM.getVertical() - 10) + 5)));
+			setMapPos(df::Vector((float)(std::rand() % (DM.getHorizontal() - 42) + 21), (float)(std::rand() % (DM.getVertical() - 10) + 5)));
 		}
-		unloadNPC();
 
 		//LM.writeLog("Changing rooms to new room %f, %f\n", new_vec.getX(), new_vec.getY());
 	}
@@ -489,10 +505,8 @@ void NPC::assassinate()
 			NPC* npc = (NPC*)npcs[i];
 			if (npc->getId() != getId() && npc->getRoomPos() == roomPos)
 			{
-				npc->loadNPC();
-				npc->setPosition(df::Vector((float)(std::rand() % (DM.getHorizontal() - 42) + 21), (float)(std::rand() % (DM.getVertical() - 10) + 5)));
+				npc->setMapPos(df::Vector((float)(std::rand() % (DM.getHorizontal() - 42) + 21), (float)(std::rand() % (DM.getVertical() - 10) + 5)));
 				npc->die();
-				npc->unloadNPC();
 			}
 		}
 		// Move rooms
@@ -509,28 +523,26 @@ void NPC::assassinate()
 		}
 		setRoomPos(new_vec);
 
-		loadNPC();
 		if (inLoadedRoom())
 		{
 			switch (roll) {
 			case 0:	// West
-				setPosition(df::Vector((float)(DM.getHorizontal() - 21), (float)(DM.getVertical() / 2)));
+				setMapPos(df::Vector((float)(DM.getHorizontal() - 21), (float)(DM.getVertical() / 2)));
 				break;
 			case 1:	// North
-				setPosition(df::Vector((float)(DM.getHorizontal() / 2), (float)(DM.getVertical() - 5)));
+				setMapPos(df::Vector((float)(DM.getHorizontal() / 2), (float)(DM.getVertical() - 5)));
 				break;
 			case 2:	// East
-				setPosition(df::Vector((float)(21), (float)(DM.getVertical() / 2)));
+				setMapPos(df::Vector((float)(21), (float)(DM.getVertical() / 2)));
 				break;
 			case 3:	// South
-				setPosition(df::Vector((float)(DM.getHorizontal() / 2), (float)(5)));
+				setMapPos(df::Vector((float)(DM.getHorizontal() / 2), (float)(5)));
 				break;
 			}
 		}
 		else {
-			setPosition(df::Vector((float)(std::rand() % (DM.getHorizontal() - 42) + 21), (float)(std::rand() % (DM.getVertical() - 10) + 5)));
+			setMapPos(df::Vector((float)(std::rand() % (DM.getHorizontal() - 42) + 21), (float)(std::rand() % (DM.getVertical() - 10) + 5)));
 		}
-		unloadNPC();
 		setHunt(false, false);
 		checkHunt();
 	}
@@ -651,6 +663,8 @@ void NPC::leave(int speed, bool nearest) { // walk to a random exit of the room
 		//	getRoomPos().getX(), getRoomPos().getY(), target);
 		setRoomPos(newRoomPos);
 		roamCooldown = speed;
+		if (getMurd())
+			LM.writeLog("RE: Leaving room\n");
 		unloadNPC();
 		state = "roaming";
 		stateCooldown = (std::rand() % 100) + 30;
@@ -793,6 +807,20 @@ int NPC::draw()
 {
 	updateSprite();
 	df::Sprite* p_s = RM.getSprite(getAnimation().getSprite()->getLabel());
+	if (inLoadedRoom()) {
+		if (beingChased() || isHunting)
+		{
+			if ((beingChased() && getAnimation().getSlowdownCount() == 0 && getAnimation().getIndex() % 3 == 0) ||
+				(isHunting && getAnimation().getSlowdownCount() == 0 && getAnimation().getIndex() % 4 == 0))
+			{
+				RM.getSound("Run")->play();
+			}
+		}
+		else if (moving && getAnimation().getSlowdownCount() == 0 && getAnimation().getIndex() % 4 == 0) {
+			RM.getSound("Step")->play();
+		}
+	}
+
 	p_s->setColor(color);
 	return Object::draw();
 }

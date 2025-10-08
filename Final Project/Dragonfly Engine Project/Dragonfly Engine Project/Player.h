@@ -11,6 +11,8 @@ private:
 	int move_slowdown;
 	int move_countdown;
 	bool searching;
+	int fire_cooldown;
+
 	void step();
 	void move(int dx, int dy);
 	void kbd(const df::EventKeyboard* p_keyboard_event);

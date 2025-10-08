@@ -8,6 +8,7 @@
 #include "GameEnd.h"
 #include "Bullet.h"
 #include "Reticle.h"
+#include "ResourceManager.h"
 
 void Player::checkFacing()
 {
@@ -113,6 +114,13 @@ int Player::draw()
         }
         
     }
+
+    if (getAnimation().getSprite()->getLabel() == "PCw" + tag && getAnimation().getSlowdownCount() == 0 && 
+        getAnimation().getIndex() % 4 == 0)
+    {
+        RM.getSound("Step")->play();
+    }
+
     int ret = Object::draw();
     setPosition(initPos);
     return ret;
@@ -129,6 +137,9 @@ void Player::step() {
         move_countdown = 0;
     if (shootFrames > 0)
         shootFrames--;
+    if (fire_cooldown > 0)
+        fire_cooldown--;
+
 }
 
 // updates the hero's position based on input given
@@ -263,6 +274,10 @@ void Player::mouse(const df::EventMouse* p_mouse_event) {
 }
 
 void Player::fire(df::Vector pos) {
+    if (fire_cooldown > 0)
+    {
+        return;
+    }
     df::Vector targetPos = getPosition();
     checkFacing();
     if (faceRight)
@@ -275,8 +290,7 @@ void Player::fire(df::Vector pos) {
     df::Vector direction = (pos - targetPos);
     direction.normalize();
     new Bullet(targetPos, direction);
-    if (shootFrames < 2)
-    {
-        shootFrames = 6;
-    }
+    RM.getSound("Shot")->play();
+    fire_cooldown = 8;
+    shootFrames = 6;
 }

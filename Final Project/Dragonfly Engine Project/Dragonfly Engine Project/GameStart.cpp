@@ -8,6 +8,7 @@
 #include "LogManager.h"
 #include "GameEnd.h"
 #include "Clue.h"
+#include "ResourceManager.h"
 
 GameStart::GameStart() {
 	setSolidness(df::SPECTRAL);
@@ -49,6 +50,8 @@ void GameStart::start() {
 	new NPC(df::YELLOW, df::Vector(2, 2));
 	new NPC(df::MAGENTA, df::Vector(2, 2));
 	new Clue;
+
+	RM.getSound("Start")->play();
 
 	//NPC* murd = (NPC*)WM.objectsOfType("NPC")[0];
 	NPC* murd = (NPC*)WM.objectsOfType("NPC")[std::rand() % 6];

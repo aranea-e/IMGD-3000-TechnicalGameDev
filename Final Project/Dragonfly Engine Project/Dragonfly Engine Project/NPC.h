@@ -40,6 +40,7 @@ public:
 	df::Color getColor() const;
 	void setRoomPos(df::Vector new_room);
 	df::Vector getRoomPos() const;
+	void setMapPos(df::Vector new_mpos);
 	void die();
 	void setMurd(bool murd = true);
 	bool getMurd() const;

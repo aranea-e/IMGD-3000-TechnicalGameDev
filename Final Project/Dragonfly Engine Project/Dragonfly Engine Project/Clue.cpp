@@ -7,6 +7,7 @@
 #include "EventSearch.h"
 #include <algorithm>
 #include "Player.h"
+#include "ResourceManager.h"
 
 Clue::Clue()
 {
@@ -176,6 +177,8 @@ void Clue::search()
 						  1 + std::abs(getPosition().getY() - p_p->getPosition().getY()));
 	if (dist < 5 && inLoadedRoom() != -1)
 	{
+		if (!revealed[inLoadedRoom()])
+			RM.getSound("Clue")->play();
 		revealed[inLoadedRoom()] = true;
 	}
 }
