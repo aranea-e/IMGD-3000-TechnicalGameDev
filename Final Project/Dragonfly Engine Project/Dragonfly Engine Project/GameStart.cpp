@@ -10,6 +10,7 @@
 #include "Clue.h"
 
 GameStart::GameStart() {
+	setSolidness(df::SPECTRAL);
 	setSprite("Bingus");
 	df::Vector p(DM.getHorizontal() / 2, DM.getVertical() / 2);
 	setPosition(p);
@@ -32,6 +33,12 @@ int GameStart::eventHandler(const df::Event* p_e) {
 }
 
 void GameStart::start() {
+	df::ObjectList objs = WM.getAllObjects();
+	for (int i = 0; i < objs.getCount(); i++)
+	{
+		WM.markForDelete(objs[i]);
+	}
+
 	new Room;
 	new Reticle;
 	new Player;

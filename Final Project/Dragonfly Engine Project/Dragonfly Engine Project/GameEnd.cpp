@@ -15,6 +15,7 @@
 
 GameEnd::GameEnd(int type)
 {
+	setSolidness(df::SPECTRAL);
 	m_type = type;
 	df::Vector p(DM.getHorizontal() / 2, DM.getVertical() / 2);
 	setPosition(p);
@@ -44,6 +45,12 @@ int GameEnd::eventHandler(const df::Event* p_e) {
 }
 
 void GameEnd::restart() {
+	df::ObjectList objs = WM.getAllObjects();
+	for (int i = 0; i < objs.getCount(); i++)
+	{
+		WM.markForDelete(objs[i]);
+	}
+
 	new Room;
 	new Reticle;
 	new Player;

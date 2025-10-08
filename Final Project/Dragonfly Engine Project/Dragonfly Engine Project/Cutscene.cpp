@@ -19,6 +19,8 @@ void Cutscene::deleteOthers()
 
 Cutscene::Cutscene(int t, df::Color c)
 {
+	setSolidness(df::SPECTRAL);
+
 	count = 0;
 	type = t;
 	setType("Cutscene");

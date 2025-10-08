@@ -185,6 +185,6 @@ df::Box df::WorldManager::getWorldBox(const Object* p_o, Vector where)
 	Vector corner = box.getCorner();
 	corner.setX(corner.getX() + where.getX());
 	corner.setY(corner.getY() + where.getY());
-	box.setCorner(corner);
+	box.setCorner(corner); 
 	return box;
 }
