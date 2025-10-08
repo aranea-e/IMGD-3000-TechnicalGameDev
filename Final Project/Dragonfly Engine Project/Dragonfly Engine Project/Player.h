@@ -18,8 +18,15 @@ private:
 	void fire(df::Vector pos);
 	void loaded(const EventRoomLoaded* p_load_event);
 
+	bool faceRight;
+	bool moving;
+	int shootFrames;
+	void checkFacing();
+	void checkMoving();
+
 public:
 	Player();
 	int eventHandler(const df::Event* p_e) override;
 	void findSearch();
+	int draw() override;
 };

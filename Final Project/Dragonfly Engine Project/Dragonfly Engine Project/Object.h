@@ -59,7 +59,7 @@ namespace df {
 		void setAnimation(Animation newAnimation);	
 		Animation getAnimation() const;
 		void setBox(Box new_box);
-		Box getBox() const;
+		virtual Box getBox() const;
 
 		// Handle event (default is to ignore everything
 		// Return 0 if ignored, else 1 if handled

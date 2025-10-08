@@ -23,6 +23,9 @@ private:
 	int murdWait;
 	int murdTimer;
 	bool alive;
+	
+	bool faceRight;
+	bool moving;
 
 public:
 	NPC(df::Color npc_color = df::WHITE, df::Vector pos = df::Vector(0, 0));
@@ -62,4 +65,5 @@ public:
 
 
 	int draw() override;
+	df::Box getBox() const override;
 };

@@ -33,6 +33,7 @@ NPC::NPC(df::Color npc_color, df::Vector pos)
 	murdTimer = -1;
 
 	// set sprite
+	setSprite("NPC_L");
 	color = npc_color;
 	updateSprite();
 	// set type
@@ -54,16 +55,37 @@ void NPC::setColor(df::Color npc_color) {
 }
 
 void NPC::updateSprite() {
+	std::string tag = "_L";
+	if (faceRight)
+	{
+		tag = "_R";
+	}
+
 	if (!alive)
 	{
+		if (getAnimation().getSprite()->getLabel() != "Dead")
 		setSprite("Dead");
 	}
 	else if (isHunting)
 	{
-		setSprite("Murd");
+		if (getAnimation().getSprite()->getLabel() != "Murd" + tag)
+		setSprite("Murd" + tag);
 	}
 	else {
-		setSprite("NPC");
+		if (beingChased())
+		{
+			if (getAnimation().getSprite()->getLabel() != ("NPCp" + tag))
+			setSprite("NPCp" + tag);
+
+		}
+		else if (moving) {
+			if (getAnimation().getSprite()->getLabel() != ("NPCw" + tag))
+			setSprite("NPCw" + tag);
+		}
+		else {
+			if (getAnimation().getSprite()->getLabel() != ("NPC" + tag))
+			setSprite("NPC" + tag);
+		}
 	}
 }
 
@@ -230,6 +252,7 @@ void NPC::roam() {
 	if (patience != 0) {
 		if (state == "idle" && stateCooldown > 0) {
 			stateCooldown--;
+			moving = false;
 		}
 		else if (state == "roaming" && stateCooldown > 0) {
 			if (roamCooldown == 0) {
@@ -237,6 +260,20 @@ void NPC::roam() {
 				if (new_pos.getY() > 5 && new_pos.getY() < DM.getVertical() - 5 && new_pos.getX() > 20 && new_pos.getX() < DM.getHorizontal() - 20) {
 					mapPos.setXY(new_pos.getX(), new_pos.getY());
 					WM.moveObject(this, mapPos);
+
+					moving = true;
+
+					if (roamX > 0)
+					{
+						faceRight = true;
+					}
+					if (roamX < 0)
+					{
+						faceRight = false;
+					}
+				}
+				else {
+					moving = false;
 				}
 				roamCooldown = 15;
 			}
@@ -249,6 +286,7 @@ void NPC::roam() {
 				//LM.writeLog("Going into idle\n");
 				state = "idle";
 				stateCooldown = (std::rand() % 300) + 30;
+				moving = false;
 			}
 			else if (choose == 1) {
 				//LM.writeLog("Going into roam\n");
@@ -499,6 +537,7 @@ void NPC::assassinate()
 }
 
 void NPC::leave(int speed, bool nearest) { // walk to a random exit of the room
+	moving = true;
 	patience = -1;
 	df::Vector doorLocations[4];
 	doorLocations[0] = df::Vector((float)(DM.getHorizontal() / 2), (float)(5));
@@ -508,11 +547,13 @@ void NPC::leave(int speed, bool nearest) { // walk to a random exit of the room
 	if (nearest)
 	{
 		int mindist = 9999;
+		Room* room = (Room*)WM.objectsOfType("room")[0];
+		bool* doors = room->getDoors();
 		for (int i = 0; i < 4; i++)
 		{
 			int dist = (int)std::max(abs(doorLocations[i].getX() - getPosition().getX()),
 								abs(doorLocations[i].getY() - getPosition().getY()));
-			if (dist < mindist)
+			if (dist < mindist && doors[i])
 			{
 				mindist = dist;
 				target = i;
@@ -566,6 +607,15 @@ void NPC::leave(int speed, bool nearest) { // walk to a random exit of the room
 	}
 	else {
 		roamY = 0;
+	}
+
+	if (roamX > 0)
+	{
+		faceRight = true;
+	}
+	if (roamX < 0)
+	{
+		faceRight = false;
 	}
 
 	if (roamX == 0 && roamY == 0 && roamCooldown == 0)
@@ -625,6 +675,7 @@ void NPC::leave(int speed, bool nearest) { // walk to a random exit of the room
 
 void NPC::chaseNPC()
 {
+	moving = true;
 	df::ObjectList npcs = WM.objectsOfType("NPC"); // Get NPCs
 	NPC* target = nullptr;
 
@@ -667,6 +718,15 @@ void NPC::chaseNPC()
 		roamY = 0;
 	}
 
+	if (roamX > 0)
+	{
+		faceRight = true;
+	}
+	if (roamX < 0)
+	{
+		faceRight = false;
+	}
+
 	if (roamCooldown == 0) {	// Roam towards NPC
 		df::Vector new_pos = df::Vector(mapPos.getX() + roamX, mapPos.getY() + roamY);
 		if (new_pos.getY() > 4 && new_pos.getY() < DM.getVertical() - 4 && new_pos.getX() > 20 && new_pos.getX() < DM.getHorizontal() - 20) {
@@ -683,6 +743,7 @@ void NPC::chaseNPC()
 
 void NPC::chasePlayer()
 {
+	moving = true;
 	df::Vector targetPos = WM.objectsOfType("Player")[0]->getPosition();	// Get player position
 
 	if (targetPos.getX() > getPosition().getX()) { // Find X roam
@@ -705,6 +766,15 @@ void NPC::chasePlayer()
 		roamY = 0;
 	}
 
+	if (roamX > 0)
+	{
+		faceRight = true;
+	}
+	if (roamX < 0)
+	{
+		faceRight = false;
+	}
+
 	if (roamCooldown == 0) {	// Roam towards player
 		df::Vector new_pos = df::Vector(mapPos.getX() + roamX, mapPos.getY() + roamY);
 		if (new_pos.getY() > 4 && new_pos.getY() < DM.getVertical() - 4 && new_pos.getX() > 20 && new_pos.getX() < DM.getHorizontal() - 20) {
@@ -721,7 +791,13 @@ void NPC::chasePlayer()
 
 int NPC::draw()
 {
+	updateSprite();
 	df::Sprite* p_s = RM.getSprite(getAnimation().getSprite()->getLabel());
 	p_s->setColor(color);
 	return Object::draw();
+}
+
+df::Box NPC::getBox() const
+{
+	return df::Box(df::Vector(-2.5, -2.5), 5, 5);
 }

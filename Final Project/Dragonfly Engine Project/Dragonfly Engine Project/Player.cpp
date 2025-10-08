@@ -9,8 +9,31 @@
 #include "Bullet.h"
 #include "Reticle.h"
 
+void Player::checkFacing()
+{
+    if (dx > 0)
+    {
+        faceRight = true;
+    }
+    if (dx < 0) 
+    {
+        faceRight = false;
+    }
+}
+
+void Player::checkMoving()
+{
+    if (dx == 0 && dy == 0)
+    {
+        moving = false;
+        return;
+    }
+    moving = true;
+}
+
 Player::Player() {
     // set sprite
+    setSprite("PC_L");
     // set type
     setType("Player");
     // set position
@@ -61,6 +84,40 @@ void Player::findSearch()
     searching = r->getSearch();
 }
 
+int Player::draw()
+{
+    std::string tag = "_L";
+    df::Vector initPos = getPosition();
+    int mod = -1;
+    checkFacing();
+    checkMoving();
+    if (faceRight)
+    {
+        tag = "_R";
+        mod = 1;
+    }
+    if (moving && shootFrames == 0 && getAnimation().getSprite()->getLabel() != "PCw"+tag)
+    {
+        setSprite("PCw" + tag);
+    }
+    if (!moving && shootFrames == 0 && getAnimation().getSprite()->getLabel() != "PC" + tag)
+    {
+        setSprite("PC" + tag);
+    }
+    if (shootFrames > 0)
+    {
+        setPosition(initPos + df::Vector(mod * 3, 0));
+        if (getAnimation().getSprite()->getLabel() != "PCs" + tag)
+        {
+            setSprite("PCs" + tag);
+        }
+        
+    }
+    int ret = Object::draw();
+    setPosition(initPos);
+    return ret;
+}
+
 // step event for Hero to update private attributes
 void Player::step() {
     // if dx or dy is not zero, call move to update hero position
@@ -70,6 +127,8 @@ void Player::step() {
     move_countdown--;
     if (move_countdown < 0)
         move_countdown = 0;
+    if (shootFrames > 0)
+        shootFrames--;
 }
 
 // updates the hero's position based on input given
@@ -204,7 +263,20 @@ void Player::mouse(const df::EventMouse* p_mouse_event) {
 }
 
 void Player::fire(df::Vector pos) {
-    df::Vector direction = (pos - getPosition());
+    df::Vector targetPos = getPosition();
+    checkFacing();
+    if (faceRight)
+    {
+        targetPos = targetPos + df::Vector(6, -1);
+    }
+    else {
+        targetPos = targetPos + df::Vector(-6, -1);
+    }
+    df::Vector direction = (pos - targetPos);
     direction.normalize();
-    new Bullet(getPosition(), direction);
+    new Bullet(targetPos, direction);
+    if (shootFrames < 2)
+    {
+        shootFrames = 6;
+    }
 }
