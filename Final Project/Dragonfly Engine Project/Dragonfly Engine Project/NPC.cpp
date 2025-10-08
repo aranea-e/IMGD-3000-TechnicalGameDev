@@ -126,6 +126,11 @@ df::Vector NPC::getRoomPos() const {
 
 void NPC::setMapPos(df::Vector new_mpos)
 {
+	if (new_mpos.getY() <= 4 || new_mpos.getY() >= DM.getVertical() - 4 || new_mpos.getX() <= 20 || new_mpos.getX() >= DM.getHorizontal() - 20)
+	{
+		LM.writeLog("!!Err: OOB (In: SetMapPos)!!\n");
+		return;
+	}
 	mapPos = new_mpos;
 }
 
@@ -134,6 +139,10 @@ void NPC::die()
 	if (inLoadedRoom() && alive)
 	{
 		RM.getSound("NPC_Death")->play();
+	}
+	if (alive)
+	{
+		LM.writeLog("NPC Killed: %s\n", getColorString().c_str());
 	}
 	alive = false;
 	setAltitude(1);
@@ -195,7 +204,6 @@ void NPC::unloadNPC() {
 		setMapPos(getPosition());
 		//LM.writeLog("Stored pos: (%f, %f)\n", mapPos.getX(), mapPos.getY());
 	}
-	if (getMurd())
 	loaded = false;
 	setPosition(df::Vector(-100, -100));
 }
@@ -362,29 +370,38 @@ int NPC::eventHandler(const df::Event* p_e) {
 		step();
 		return 1;
 	}
-	//if (p_e->getType() == ROOM_LOADED_EVENT) {
-	//	LM.writeLog("Room Loaded. NPC position: (%f, %f)\n", getRoomPos().getX(), getRoomPos().getY());
-	//	return 1;
-	//}
+	if (p_e->getType() == ROOM_LOADED_EVENT) {
+		checkHunt();
+		if (inLoadedRoom())
+		{
+			LM.writeLog("Loading NPC: roomPos %.0f, %.0f; mapPos %.0f, %.0f\n", roomPos.getX(), roomPos.getY(), mapPos.getX(), mapPos.getY());
+			loadNPC();
+		}
+		else {
+			LM.writeLog("Not loading NPC: roomPos %.0f, %.0f; mapPos %.0f, %.0f\n", roomPos.getX(), roomPos.getY(), mapPos.getX(), mapPos.getY());
+			unloadNPC();
+		}
+		return 1;
+	}
 	return 0;
 }
 
 // Function that holds most of the AI logic. Does not include the logic for the murder yet
 void NPC::step() {
+	checkHunt();
+	if (inLoadedRoom()) {
+		loadNPC();
+	}
+	else {
+		unloadNPC();
+	}
+
 	if (!alive)			// If NPC is dead,
 	{
-		if (inLoadedRoom()) {	// If the NPC is in the room with the player,
-			loadNPC();			// Load NPC at their room position
-		}
-		else {
-			unloadNPC();		// Hide NPC
-		}
 		return;	// Do nothing else
 	}
 	
-	checkHunt();
 	if (inLoadedRoom()) { // if the NPC is in the room with the player
-		loadNPC(); // Load NPC at their room position
 		if (getHunt()) 
 		{
 			if (isHuntPlayer)
@@ -407,9 +424,7 @@ void NPC::step() {
 			//setColor(df::RED);
 			leave(); // if state is set to leave, have them find the nearest exit and go out that way
 		}
-		//chase();
 	} else {
-		unloadNPC(); // Move the NPC to a position off screen while still presevering where their room position is
 		if (getHunt())
 		{
 			assassinate();	// wait a bit then kill other npc in room
@@ -680,7 +695,7 @@ void NPC::leave(int speed, bool nearest) { // walk to a random exit of the room
 			WM.moveObject(this, mapPos);
 		}
 		else {
-			LM.writeLog("!!err: OOB!!\n");
+			LM.writeLog("!!Err: OOB (In: Leave))!!\n");
 		}
 		roamCooldown = 15;
 	}
@@ -748,7 +763,7 @@ void NPC::chaseNPC()
 			WM.moveObject(this, mapPos);
 		}
 		else {
-			LM.writeLog("!!err: OOB!!\n");
+			LM.writeLog("!!Err: OOB (In: Chase NPC)!!\n");
 		}
 		roamCooldown = std::rand() % 2 + 1;
 	}
@@ -796,7 +811,7 @@ void NPC::chasePlayer()
 			WM.moveObject(this, mapPos);
 		}
 		else {
-			LM.writeLog("!!err: OOB!!\n");
+			LM.writeLog("!!Err: OOB (In: Chase Player)!!\n");
 		}
 		roamCooldown = 1;
 	}
