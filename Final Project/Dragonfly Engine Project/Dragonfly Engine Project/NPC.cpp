@@ -41,7 +41,6 @@ NPC::NPC(df::Color npc_color, df::Vector pos)
 	setType("NPC");
 
 	setSolidness(df::SOFT);
-	setAltitude(1);
 
 	if (inLoadedRoom()) {
 		loadNPC();
