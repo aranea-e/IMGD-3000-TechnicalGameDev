@@ -51,7 +51,7 @@ $$/   $$/ $$/ $$/ $$/  $$$$$$$/ $$/
 | $$ \$$\ | $$| $$| $$| $$$$$$$$| $$      
 | $$  \$$\| $$| $$| $$ \$$     \| $$      
  \$$   \$$ \$$ \$$ \$$  \$$$$$$$ \$$      
-   oops, that's an innocent you killed    
-          press P to play again           
-            press Q to quit               
-     press R to return to main menu       
+    oops, that's an innocent you killed   
+           press P to play again          
+             press Q to quit              
+      press R to return to main menu      

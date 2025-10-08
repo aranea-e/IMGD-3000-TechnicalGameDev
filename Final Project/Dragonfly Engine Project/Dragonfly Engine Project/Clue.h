@@ -14,4 +14,5 @@ public:
 	int draw() override;
 	df::Color getMurdColor() const;
 	void search();
+	int cluesFound() const;
 };

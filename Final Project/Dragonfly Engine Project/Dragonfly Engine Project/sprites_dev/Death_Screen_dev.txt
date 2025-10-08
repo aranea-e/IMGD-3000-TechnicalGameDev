@@ -12,10 +12,10 @@ red
     | $$ |  $$$$$$/|  $$$$$$/      | $$$$$$$/| $$|  $$$$$$$|  $$$$$$$ 
     |__/  \______/  \______/       |_______/ |__/ \_______/ \_______/ 
                                                                       
-                             (lol)                                    
-                     press P to play again                            
-                        press Q to quit                               
-                 press R to return to main menu                       
+                                (lol)                                 
+                        press P to play again                         
+                           press Q to quit                            
+                    press R to return to main menu                    
 $$\     $$\                         $$$$$$$\  $$\                 $$\ 
 \$$\   $$  |                        $$  __$$\ \__|                $$ |
  \$$\ $$  /$$$$$$\  $$\   $$\       $$ |  $$ |$$\  $$$$$$\   $$$$$$$ |
@@ -25,10 +25,10 @@ $$\     $$\                         $$$$$$$\  $$\                 $$\
     $$ |  \$$$$$$  |\$$$$$$  |      $$$$$$$  |$$ |\$$$$$$$\ \$$$$$$$ |
     \__|   \______/  \______/       \_______/ \__| \_______| \_______|
                                                                       
-                             (lol)                                    
-                     press P to play again                            
-                        press Q to quit                               
-                 press R to return to main menu                       
+                                (lol)                                 
+                        press P to play again                         
+                           press Q to quit                            
+                    press R to return to main menu                    
  __      __                         _______   __                  __  
 /  \    /  |                       /       \ /  |                /  | 
 $$  \  /$$/______   __    __       $$$$$$$  |$$/   ______    ____$$ | 
@@ -38,10 +38,10 @@ $$  \  /$$/______   __    __       $$$$$$$  |$$/   ______    ____$$ |
     $$ | $$ \__$$ |$$ \__$$ |      $$ |__$$ |$$ |$$$$$$$$/ $$ \__$$ | 
     $$ | $$    $$/ $$    $$/       $$    $$/ $$ |$$       |$$    $$ | 
     $$/   $$$$$$/   $$$$$$/        $$$$$$$/  $$/  $$$$$$$/  $$$$$$$/  
-                             (lol)                                    
-                     press P to play again                            
-                        press Q to quit                               
-                 press R to return to main menu                       
+                                (lol)                                 
+                        press P to play again                         
+                           press Q to quit                            
+                    press R to return to main menu                    
  __      __                          _______   __                  __ 
 |  \    /  \                        |       \ |  \                |  \
  \$$\  /  $$______   __    __       | $$$$$$$\ \$$  ______    ____| $$
@@ -51,7 +51,7 @@ $$  \  /$$/______   __    __       $$$$$$$  |$$/   ______    ____$$ |
     | $$  | $$__/ $$| $$__/ $$      | $$__/ $$| $$| $$$$$$$$| $$__| $$
     | $$   \$$    $$ \$$    $$      | $$    $$| $$ \$$     \ \$$    $$
      \$$    \$$$$$$   \$$$$$$        \$$$$$$$  \$$  \$$$$$$$  \$$$$$$$
-                             (lol)                                    
-                     press P to play again                            
-                        press Q to quit                               
-                 press R to return to main menu                       
+                                (lol)                                 
+                        press P to play again                         
+                           press Q to quit                            
+                    press R to return to main menu                    

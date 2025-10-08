@@ -5,6 +5,8 @@
 #include "DisplayManager.h"
 #include "ResourceManager.h"
 #include "LogManager.h"
+#include "NPC.h"
+#include "Clue.h"
 
 void Cutscene::deleteOthers()
 {
@@ -20,6 +22,8 @@ void Cutscene::deleteOthers()
 
 Cutscene::Cutscene(int t, df::Color c)
 {
+	getScore();
+
 	if (WM.objectsOfType("Cutscene").getCount() > 1)
 	{
 		LM.writeLog("!!Multiple Cutscenes!!\n");
@@ -42,12 +46,29 @@ int Cutscene::getEndType()
 	return type;
 }
 
+void Cutscene::getScore()
+{
+	npcs = 0;
+	df::ObjectList objs = WM.objectsOfType("NPC");
+	for (int i = 0; i < objs.getCount(); i++)
+	{
+		NPC* npc = (NPC*)objs[i];
+		if (npc->getAlive() && !npc->getMurd())
+		{
+			npcs += 1;
+		}
+	}
+
+	Clue* cluesObj = (Clue*)WM.objectsOfType("Clue")[0];
+	clues = cluesObj->cluesFound();
+}
+
 int Cutscene::eventHandler(const df::Event* p_e) {
 	if (p_e->getType() == df::STEP_EVENT) {
 		count++;
 		if (count >= 35)
 		{
-			new GameEnd(type);
+			new GameEnd(type, npcs, clues);
 		}
 	}
 	return 0;

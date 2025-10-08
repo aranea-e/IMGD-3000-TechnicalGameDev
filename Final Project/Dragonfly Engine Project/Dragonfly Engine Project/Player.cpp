@@ -24,7 +24,7 @@ void Player::checkFacing()
 
 void Player::checkMoving()
 {
-    if (dx == 0 && dy == 0)
+    if ((dx == 0 && dy == 0) || searching)
     {
         moving = false;
         return;

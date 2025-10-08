@@ -11,6 +11,7 @@
 
 Clue::Clue()
 {
+	setType("Clue");
 	LM.writeLog("Spawned Clues\n");
 	setPosition(df::Vector(DM.getHorizontal() / 2, DM.getVertical() / 2));
 	setSolidness(df::SPECTRAL);
@@ -181,4 +182,14 @@ void Clue::search()
 			RM.getSound("Clue")->play();
 		revealed[inLoadedRoom()] = true;
 	}
+}
+
+int Clue::cluesFound() const
+{
+	int count = 0;
+	for (int i = 0; i < 6; i++)
+	{
+		count += (int)revealed[i];
+	}
+	return count;
 }

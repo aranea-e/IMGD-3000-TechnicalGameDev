@@ -12,9 +12,9 @@ green
     | $$ |  $$$$$$/|  $$$$$$/      | $$/   \  $$|  $$$$$$/| $$  | $$ 
     |__/  \______/  \______/       |__/     \__/ \______/ |__/  |__/ 
                                                                      
-                     press P to play again                           
-                        press Q to quit                              
-                 press R to return to main menu                      
+                        press P to play again                        
+                           press Q to quit                           
+                    press R to return to main menu                   
 $$\     $$\                         $$\      $$\                     
 \$$\   $$  |                        $$ | $\  $$ |                    
  \$$\ $$  /$$$$$$\  $$\   $$\       $$ |$$$\ $$ | $$$$$$\  $$$$$$$\  
@@ -24,9 +24,9 @@ $$\     $$\                         $$\      $$\
     $$ |  \$$$$$$  |\$$$$$$  |      $$  /   \$$ |\$$$$$$  |$$ |  $$ |
     \__|   \______/  \______/       \__/     \__| \______/ \__|  \__|
                                                                      
-                     press P to play again                           
-                        press Q to quit                              
-                 press R to return to main menu                      
+                        press P to play again                        
+                           press Q to quit                           
+                    press R to return to main menu                   
  __      __                         __       __                      
 /  \    /  |                       /  |  _  /  |                     
 $$  \  /$$/______   __    __       $$ | / \ $$ |  ______   _______   
@@ -36,9 +36,9 @@ $$  \  /$$/______   __    __       $$ | / \ $$ |  ______   _______
     $$ | $$ \__$$ |$$ \__$$ |      $$$$/  $$$$ |$$ \__$$ |$$ |  $$ | 
     $$ | $$    $$/ $$    $$/       $$$/    $$$ |$$    $$/ $$ |  $$ | 
     $$/   $$$$$$/   $$$$$$/        $$/      $$/  $$$$$$/  $$/   $$/  
-                     press P to play again                           
-                        press Q to quit                              
-                 press R to return to main menu                      
+                        press P to play again                        
+                           press Q to quit                           
+                    press R to return to main menu                   
  __      __                          __       __                     
 |  \    /  \                        |  \  _  |  \                    
  \$$\  /  $$______   __    __       | $$ / \ | $$  ______   _______  
@@ -48,6 +48,6 @@ $$  \  /$$/______   __    __       $$ | / \ $$ |  ______   _______
     | $$  | $$__/ $$| $$__/ $$      | $$$$  \$$$$| $$__/ $$| $$  | $$
     | $$   \$$    $$ \$$    $$      | $$$    \$$$ \$$    $$| $$  | $$
      \$$    \$$$$$$   \$$$$$$        \$$      \$$  \$$$$$$  \$$   \$$
-                     press P to play again                           
-                        press Q to quit                              
-                 press R to return to main menu                      
+                        press P to play again                        
+                           press Q to quit                           
+                    press R to return to main menu                   

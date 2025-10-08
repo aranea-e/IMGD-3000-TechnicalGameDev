@@ -12,11 +12,15 @@
 #include "GameManager.h"
 #include "Windows.h"
 #include "Clue.h"
+#include <format>
 
-GameEnd::GameEnd(int type)
+GameEnd::GameEnd(int type, int npcs, int clues)
 {
 	setSolidness(df::SPECTRAL);
 	m_type = type;
+	m_npcs = npcs;
+	m_clues = clues;
+	m_score = npcs * 1000 + clues * 500;
 	df::Vector p(DM.getHorizontal() / 2, DM.getVertical() / 2);
 	setPosition(p);
 	setType("GameEnd");
@@ -42,6 +46,18 @@ int GameEnd::eventHandler(const df::Event* p_e) {
 		return 1;
 	}
 	return 0;
+}
+
+int GameEnd::draw()
+{
+	if (getAnimation().getSprite()->getLabel() == "Win") {
+		std::string message = "Points: " + std::to_string(m_score);
+		std::string message2 = "[ 1000 pts per surviving NPC (" + std::to_string(m_npcs) 
+			+ ") | 500 pts per clue found (" + std::to_string(m_clues) + ") ]";
+		DM.drawString(df::Vector(DM.getHorizontal() / 2, DM.getVertical() - 5), message, df::CENTER_JUSTIFIED, df::WHITE);
+		DM.drawString(df::Vector(DM.getHorizontal() / 2, DM.getVertical() - 4), message2, df::CENTER_JUSTIFIED, df::WHITE);
+	}
+	return Object::draw();
 }
 
 void GameEnd::restart() {
