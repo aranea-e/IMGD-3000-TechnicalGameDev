@@ -37,10 +37,10 @@ and is tasked with executing them before they can kill the player or cause serio
 		  one way or another so be careful at who you shoot and why. Players are also now allowed to investigate clues found 
 		  in the middle of the floor of certain rooms by right clicking while being next to the clue and waiting for the investigation 
 		  time around the player's reticle. There are two different series of clues (that being red and blue). The first two clues of 
-		  each color give the row and column of the last clue of that color (|| indicates column and -- indicates row). The last clue 
-		  for the blue clues indicate whether the killer is a cool or warm color character (blue, green, cyan vs red, magenta, yellow), 
-		  and the red clues indicate whether the killer is in the RGB color scheme or the CMYK color scheme (red, green, blue vs cyan, 
-		  magenta, yellow). Players are also allowed to quit out at anytime using Q. 
+		  each color give the row and column of the last clue of that color (|#| indicates column and -#- indicates row given the origin 
+		  is in the upper left and using 1 indexing). The last clue for the blue clues indicate whether the killer is a cool or warm color 
+		  character (blue, green, cyan vs red, magenta, yellow), and the red clues indicate whether the killer is in the RGB color scheme 
+		  or the CMYK color scheme (red, green, blue vs cyan, magenta, yellow). Players are also allowed to quit out at anytime using Q. 
 		  A reminder of these controls is displayed at the start screen of every game if you happen to forget and both the start 
 		  and end screens show how to navigate to different screens as well as start and end the game. To navigate between rooms,
 		  the player can move to the doorway of a room to move to it.
