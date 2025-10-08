@@ -12,7 +12,6 @@
 
 void loadResources(void) {
     // Load Character Sprites
-    RM.loadSprite("sprites_dev/PC_dev.txt", "PC");
     RM.loadSprite("sprites_dev/NPC_dev.txt", "NPC");
     RM.loadSprite("sprites_dev/Murd_dev.txt", "Murd");
     RM.loadSprite("sprites_dev/Dead_dev.txt", "Dead");
@@ -29,6 +28,8 @@ void loadResources(void) {
     RM.loadSprite("sprites_dev/Room_TR_dev.txt", "Room_TR");
     RM.loadSprite("sprites_dev/Room_Wall_B_NoDoor_dev.txt", "Room_W_N");
     RM.loadSprite("sprites_dev/Room_Wall_B_Door_dev.txt", "Room_W_D");
+    RM.loadSprite("sprites/Room_Backyard1.txt", "Room_Backyard1");
+    RM.loadSprite("sprites/Room_Backyard2.txt", "Room_Backyard2");
 
 
     RM.loadSprite("sprites_dev/Bingus.txt", "Bingus");
