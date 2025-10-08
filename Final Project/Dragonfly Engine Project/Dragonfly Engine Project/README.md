@@ -24,15 +24,23 @@ and is tasked with executing them before they can kill the player or cause serio
 
 **Features**: below is a list of all technical features that were implemented in the game:
 - Shooting at where player has cursor
--  Grid of 16 rooms that the player can traverse between
--  NPC AIs that will walk between rooms
--  Murderer AI that will look for opportunities to murder NPCs or the player
+- Grid of 16 unique rooms that the player can traverse between
+- NPC AIs that will walk between rooms and have interactions with the murderer
+- Murderer AI that will look for opportunities to murder NPCs or the player
 - Swapping the sprites of NPCs to indicate if they are alive, dead, or actively trying to kill
 - Multiple endings based on the results of the game
+- Clue system to hint at which NPC is the murderer
+- Cutscenes that play before each ending
 
 **Controls**: the player is able to move using the WASD keys and is able to fire their gun by left clicking using their mouse
 		  as a way to aim on the screen. Be aware though that as soon as a shot is fired and hits a target the game will end 
-		  one way or another so be careful at who you shoot and why. Players are also allowed to quit out at anytime using Q. 
+		  one way or another so be careful at who you shoot and why. Players are also now allowed to investigate clues found 
+		  in the middle of the floor of certain rooms by right clicking while being next to the clue and waiting for the investigation 
+		  time around the player's reticle. There are two different series of clues (that being red and blue). The first two clues of 
+		  each color give the row and column of the last clue of that color (|| indicates column and -- indicates row). The last clue 
+		  for the blue clues indicate whether the killer is a cool or warm color character (blue, green, cyan vs red, magenta, yellow), 
+		  and the red clues indicate whether the killer is in the RGB color scheme or the CMYK color scheme (red, green, blue vs cyan, 
+		  magenta, yellow). Players are also allowed to quit out at anytime using Q. 
 		  A reminder of these controls is displayed at the start screen of every game if you happen to forget and both the start 
 		  and end screens show how to navigate to different screens as well as start and end the game. To navigate between rooms,
 		  the player can move to the doorway of a room to move to it.
@@ -42,16 +50,21 @@ and is tasked with executing them before they can kill the player or cause serio
 		  certain characters and seeing if they kill them) or by keeping track of where characters roughly are and seeing if any character
 		  that was with another ends up dead. The first is arguably riskier, but allows for less character death and often a faster and more
 		  decisive game. The second strategy can also be good, but is much more dependent on luck as it can be hard for the player to track
-		  those characters unless they had just seen them and could lead to the player shooting a character that is not the murderer.
+		  those characters unless they had just seen them and could lead to the player shooting a character that is not the murderer. When
+		  considering the addition of clues, the Player can also choose to look for them to lower down the possibilities of finding the killer
+		  instead but this has its own tradoff of taking some time to complete allowing for the possibility of NPCs to die.
 
 **Endings**:  Bingus sports three different endings (excluding when the player chooses to stop playing). There is the good ending where the player
           correctly identifies the murderer and shoots them resulting in the player being informed that they have won, there is the ending
 		  where the player dies having been murderered, and there is the bad ending where the player incorrectly identifies the murderer and
-		  shoots an innocent person instead.
+		  shoots an innocent person instead. The Player also gets a score at the end of the good ending detailing how many NPCs they were able 
+		  to save as well as how many clues they were able to find.
 
-**Enhancements**: below is a list of improvements we are looking to implement between now and the final version:
-- Creating better Music to better fit the atmosphere of the game
-- Creating better SFX to better fit the atmosphere of the game
-- Creating better sprites to make characters look better
-- Adding interactibles to rooms to hint at who the murderer is
-- Potentially add cutscenes like for player death
+**Enhancements**: below is a list of improvements that we made from the Alpha into the Final:
+- Created better Music to better fit the atmosphere of the game
+- Created better SFX to better fit the atmosphere of the game
+- Created better Sprites for characters to make it look better
+- Created better Sprites for rooms so they are easy to differentiate from each other
+- Added clues the player can find to reveal who the murderer is
+- Added rotoscoped cutscenes that play before each ending
+- Fixed some bugs that were originally in the Alpha
