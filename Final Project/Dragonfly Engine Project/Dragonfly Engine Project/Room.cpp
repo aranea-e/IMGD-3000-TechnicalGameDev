@@ -16,14 +16,14 @@ void Room::init(std::string r_sprite_name, std::string bottom_wall, df::Vector r
 	roomPos = r_pos;
 	bottomWall = df::Animation();
 	bottomWall.setSprite(RM.getSprite(bottom_wall));
-	LM.writeLog("Room Loaded: %s (%d, %d)\n", r_sprite_name.c_str(), roomPos.getX(), roomPos.getY());
+	LM.writeLog("Room Loaded: %s (%.0f, %.0f)\n", r_sprite_name.c_str(), roomPos.getX(), roomPos.getY());
 }
 
 Room::Room() : Room(df::Vector(0, 0)) {}
 
 Room::Room(df::Vector r_pos)
 {
-	init(RoomToString(PosToRoom(r_pos)), RoomBottomWall(PosToRoom(r_pos)), r_pos);
+	init(RoomToString(r_pos), RoomBottomWall(PosToRoom(r_pos)), r_pos);
 }
 
 df::Vector Room::getCurrentPos() {
@@ -58,7 +58,7 @@ void Room::moveRoom(df::Vector r_move)
 		return;
 	}
 	df::Vector old_pos = roomPos;
-	init(RoomToString(PosToRoom(new_pos)), RoomBottomWall(PosToRoom(new_pos)), new_pos);
+	init(RoomToString(new_pos), RoomBottomWall(PosToRoom(new_pos)), new_pos);
 	EventRoomLoaded* p_rl = new EventRoomLoaded(new_pos, old_pos);
 	WM.onEvent(p_rl);
 }
@@ -97,6 +97,19 @@ std::string Room::RoomToString(RoomType r_type)
 	default:
 		return "Room_MM";
 	}
+}
+
+std::string Room::RoomToString(df::Vector pos)
+{
+	int x, y;
+	x = (int)pos.getX();
+	y = (int)pos.getY();
+	return "Room_" + std::to_string(x) + std::to_string(y);
+}
+
+std::string Room::RoomToString()
+{
+	return RoomToString(roomPos);
 }
 
 std::string Room::RoomBottomWall(RoomType r_type)

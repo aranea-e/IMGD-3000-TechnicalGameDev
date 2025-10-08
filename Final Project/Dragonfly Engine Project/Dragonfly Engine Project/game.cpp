@@ -48,6 +48,25 @@ void loadResources(void) {
     RM.loadSprite("sprites_dev/Room_TL_dev.txt", "Room_TL");
     RM.loadSprite("sprites_dev/Room_TM_dev.txt", "Room_TM");
     RM.loadSprite("sprites_dev/Room_TR_dev.txt", "Room_TR");
+
+    // Load new Room Sprites
+    RM.loadSprite("sprites/Room_Foyer.txt", "Room_00");
+    RM.loadSprite("sprites/Room_Kitchen.txt", "Room_10");
+    RM.loadSprite("sprites/Room_Diningroom.txt", "Room_20");
+    RM.loadSprite("sprites/Room_Bedroom.txt", "Room_30");
+    RM.loadSprite("sprites/Room_Bathroom.txt", "Room_01");
+    RM.loadSprite("sprites/Room_Billiards.txt", "Room_11");
+    RM.loadSprite("sprites/Room_Ballroom.txt", "Room_21");
+    RM.loadSprite("sprites/Room_MasterBathroom.txt", "Room_31");
+    RM.loadSprite("sprites/Room_Pool.txt", "Room_02");
+    RM.loadSprite("sprites/Room_Living.txt", "Room_12");
+    RM.loadSprite("sprites/Room_Library.txt", "Room_22");
+    RM.loadSprite("sprites/Room_Masters.txt", "Room_32");
+    RM.loadSprite("sprites/Room_Backyard1.txt", "Room_03");
+    RM.loadSprite("sprites/Room_Backyard2.txt", "Room_13");
+    RM.loadSprite("sprites/Room_Greenhouse.txt", "Room_23");
+    RM.loadSprite("sprites/Room_Laundry.txt", "Room_33");
+
     RM.loadSprite("sprites_dev/Room_Wall_B_NoDoor_dev.txt", "Room_W_N");
     RM.loadSprite("sprites_dev/Room_Wall_B_Door_dev.txt", "Room_W_D");
 

@@ -27,6 +27,8 @@ private:
 	void init(std::string r_sprite_name, std::string bottom_wall, df::Vector r_pos = df::Vector(0,0));	// Initializes values
 
 	std::string RoomToString(RoomType r_type);	// Converts RoomType to string
+	std::string RoomToString(df::Vector pos);	// Converts position to string
+	std::string RoomToString();				// Converts current position to string
 	std::string RoomBottomWall(RoomType r_type);// Gets the bottom wall string for room
 	RoomType PosToRoom(df::Vector r_pos);		// Gets RoomType for pos
 
