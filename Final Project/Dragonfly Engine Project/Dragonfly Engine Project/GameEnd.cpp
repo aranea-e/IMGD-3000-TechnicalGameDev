@@ -81,8 +81,21 @@ void GameEnd::restart() {
 
 	RM.getSound("Start")->play();
 
-	NPC* murd = (NPC*)WM.objectsOfType("NPC")[std::rand() % 6];
-	murd->setMurd();
+	bool isMurd = false;
+	while (!isMurd) {
+		NPC* murd = (NPC*)WM.objectsOfType("NPC")[std::rand() % 6];
+		murd->setMurd();
+
+		df::ObjectList npcs = WM.objectsOfType("NPC");
+		for (size_t i = 0; i < 6; i++)
+		{
+			NPC* npc = (NPC*)npcs[i];
+			if (npc->getMurd())
+			{
+				isMurd = true;
+			}
+		}
+	}
 }
 
 void GameEnd::end() {
