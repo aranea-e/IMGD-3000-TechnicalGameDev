@@ -1,0 +1,77 @@
+4
+54
+18
+10
+green
+ /$$$$$$$  /$$                                        
+| $$__  $$|__/                                        
+| $$  \ $$ /$$ /$$$$$$$   /$$$$$$  /$$   /$$  /$$$$$$$
+| $$$$$$$ | $$| $$__  $$ /$$__  $$| $$  | $$ /$$_____/
+| $$__  $$| $$| $$  \ $$| $$  \ $$| $$  | $$|  $$$$$$ 
+| $$  \ $$| $$| $$  | $$| $$  | $$| $$  | $$ \____  $$
+| $$$$$$$/| $$| $$  | $$|  $$$$$$$|  $$$$$$/ /$$$$$$$/
+|_______/ |__/|__/  |__/ \____  $$ \______/ |_______/ 
+                         /$$  \ $$                    
+                        |  $$$$$$/                    
+                         \______/                     
+                                                      
+           An ASCII murder investigation game         
+                 press P to play again                
+                    press Q to quit                   
+                use W/A/S/D keys to move              
+              use left mouse click to fire            
+ stand next to a clue and right click to investigate  
+$$$$$$$\  $$\                                         
+$$  __$$\ \__|                                        
+$$ |  $$ |$$\ $$$$$$$\   $$$$$$\  $$\   $$\  $$$$$$$\ 
+$$$$$$$\ |$$ |$$  __$$\ $$  __$$\ $$ |  $$ |$$  _____|
+$$  __$$\ $$ |$$ |  $$ |$$ /  $$ |$$ |  $$ |\$$$$$$\  
+$$ |  $$ |$$ |$$ |  $$ |$$ |  $$ |$$ |  $$ | \____$$\ 
+$$$$$$$  |$$ |$$ |  $$ |\$$$$$$$ |\$$$$$$  |$$$$$$$  |
+\_______/ \__|\__|  \__| \____$$ | \______/ \_______/ 
+                        $$\   $$ |                    
+                        \$$$$$$  |                    
+                         \______/                     
+                                                      
+           An ASCII murder investigation game         
+                 press P to play again                
+                    press Q to quit                   
+                use W/A/S/D keys to move              
+              use left mouse click to fire            
+ stand next to a clue and right click to investigate  
+ _______   __                                         
+/       \ /  |                                        
+$$$$$$$  |$$/  _______    ______   __    __   _______ 
+$$ |__$$ |/  |/       \  /      \ /  |  /  | /       |
+$$    $$< $$ |$$$$$$$  |/$$$$$$  |$$ |  $$ |/$$$$$$$/ 
+$$$$$$$  |$$ |$$ |  $$ |$$ |  $$ |$$ |  $$ |$$      \ 
+$$ |__$$ |$$ |$$ |  $$ |$$ \__$$ |$$ \__$$ | $$$$$$  |
+$$    $$/ $$ |$$ |  $$ |$$    $$ |$$    $$/ /     $$/ 
+$$$$$$$/  $$/ $$/   $$/  $$$$$$$ | $$$$$$/  $$$$$$$/  
+                        /  \__$$ |                    
+                        $$    $$/                     
+                         $$$$$$/                      
+           An ASCII murder investigation game         
+                 press P to play again                
+                    press Q to quit                   
+                use W/A/S/D keys to move              
+              use left mouse click to fire            
+ stand next to a clue and right click to investigate  
+ _______   __                                         
+|       \ |  \                                        
+| $$$$$$$\ \$$ _______    ______   __    __   _______ 
+| $$__/ $$|  \|       \  /      \ |  \  |  \ /       \
+| $$    $$| $$| $$$$$$$\|  $$$$$$\| $$  | $$|  $$$$$$$
+| $$$$$$$\| $$| $$  | $$| $$  | $$| $$  | $$ \$$    \ 
+| $$__/ $$| $$| $$  | $$| $$__| $$| $$__/ $$ _\$$$$$$\
+| $$    $$| $$| $$  | $$ \$$    $$ \$$    $$|       $$
+ \$$$$$$$  \$$ \$$   \$$ _\$$$$$$$  \$$$$$$  \$$$$$$$ 
+                        |  \__| $$                    
+                         \$$    $$                    
+                          \$$$$$$                     
+           An ASCII murder investigation game         
+                 press P to play again                
+                    press Q to quit                   
+                use W/A/S/D keys to move              
+              use left mouse click to fire            
+ stand next to a clue and right click to investigate  

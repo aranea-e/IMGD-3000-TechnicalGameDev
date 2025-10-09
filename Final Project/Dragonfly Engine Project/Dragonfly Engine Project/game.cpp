@@ -11,11 +11,6 @@
 #include "GameStart.h"
 
 void loadResources(void) {
-    // Load Dev Character Sprites
-    //RM.loadSprite("sprites_dev/PC_dev.txt", "PC");
-    //RM.loadSprite("sprites_dev/NPC_dev.txt", "NPC");
-    RM.loadSprite("sprites_dev/Murd_dev.txt", "Murd");
-    //RM.loadSprite("sprites_dev/Dead_dev.txt", "Dead");
 
     // Load PC Sprites
     RM.loadSprite("sprites/PCL_final.txt", "PC_L");
@@ -38,17 +33,6 @@ void loadResources(void) {
     RM.loadSprite("sprites/MurdL_final.txt", "Murd_L");
     RM.loadSprite("sprites/MurdR_final.txt", "Murd_R");
 
-    // Load Room Sprites.
-    RM.loadSprite("sprites_dev/Room_BL_dev.txt", "Room_BL");
-    RM.loadSprite("sprites_dev/Room_BM_dev.txt", "Room_BM");
-    RM.loadSprite("sprites_dev/Room_BR_dev.txt", "Room_BR");
-    RM.loadSprite("sprites_dev/Room_ML_dev.txt", "Room_ML");
-    RM.loadSprite("sprites_dev/Room_MM_dev.txt", "Room_MM");
-    RM.loadSprite("sprites_dev/Room_MR_dev.txt", "Room_MR");
-    RM.loadSprite("sprites_dev/Room_TL_dev.txt", "Room_TL");
-    RM.loadSprite("sprites_dev/Room_TM_dev.txt", "Room_TM");
-    RM.loadSprite("sprites_dev/Room_TR_dev.txt", "Room_TR");
-
     // Load new Room Sprites
     RM.loadSprite("sprites/Room_Foyer.txt", "Room_00");
     RM.loadSprite("sprites/Room_Kitchen.txt", "Room_10");
@@ -67,16 +51,16 @@ void loadResources(void) {
     RM.loadSprite("sprites/Room_Greenhouse.txt", "Room_23");
     RM.loadSprite("sprites/Room_Laundry.txt", "Room_33");
 
-    RM.loadSprite("sprites_dev/Room_Wall_B_NoDoor_dev.txt", "Room_W_N");
-    RM.loadSprite("sprites_dev/Room_Wall_B_Door_dev.txt", "Room_W_D");
+    RM.loadSprite("sprites/Room_Wall_B_NoDoor.txt", "Room_W_N");
+    RM.loadSprite("sprites/Room_Wall_B_Door.txt", "Room_W_D");
 
 
-    RM.loadSprite("sprites_dev/Bingus.txt", "Bingus");
-    RM.loadSprite("sprites_dev/Death_Screen_dev.txt", "Death");
-    RM.loadSprite("sprites_dev/Win_Screen_dev.txt", "Win");
-    RM.loadSprite("sprites_dev/Innocent_Death_Screen_dev.txt", "Murderer");
-    RM.loadSprite("sprites_dev/GameOver_dev.txt", "End");
-    RM.loadSprite("sprites_dev/Bullet_dev.txt", "Bullet");
+    RM.loadSprite("sprites/Bingus.txt", "Bingus");
+    RM.loadSprite("sprites/Death_Screen.txt", "Death");
+    RM.loadSprite("sprites/Win_Screen.txt", "Win");
+    RM.loadSprite("sprites/Innocent_Death_Screen.txt", "Murderer");
+    RM.loadSprite("sprites/GameOver.txt", "End");
+    RM.loadSprite("sprites/Bullet.txt", "Bullet");
 
     RM.loadSprite("sprites/Cutscene_Death.txt", "Death_Cutscene");
     RM.loadSprite("sprites/Cutscene_Win.txt", "Win_Cutscene");
