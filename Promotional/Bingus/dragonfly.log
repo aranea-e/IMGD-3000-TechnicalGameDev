@@ -1,0 +1,87 @@
+Message : Room Loaded: Room_00 (0, 0)
+Message : Spawned Clues
+Message : Clue 0: (2.000000, 3.000000)
+Message : Clue 1: (1.000000, 2.000000)
+Message : Clue 2: (1.000000, 0.000000)
+Message : Clue 3: (3.000000, 3.000000)
+Message : Clue 4: (2.000000, 0.000000)
+Message : Clue 5: (3.000000, 2.000000)
+Message : Chosen Murderer: Blue 1
+Message : Deleting: Object
+Message : Room Loaded: Room_01 (0, 1)
+Message : Not loading NPC: roomPos 1, 1; mapPos 33, 10
+Message : Not loading NPC: roomPos 1, 1; mapPos 36, 16
+Message : Not loading NPC: roomPos 1, 1; mapPos 42, 15
+Message : Not loading NPC: roomPos 2, 2; mapPos 45, 7
+Message : Not loading NPC: roomPos 2, 2; mapPos 35, 13
+Message : Not loading NPC: roomPos 2, 2; mapPos 42, 11
+Message : Deleting: bullet
+Message : Deleting: bullet
+Message : Deleting: bullet
+Message : Room Loaded: Room_11 (1, 1)
+Message : Loading NPC: roomPos 1, 1; mapPos 58, 11
+Message : Loading NPC: roomPos 1, 1; mapPos 29, 14
+Message : Loading NPC: roomPos 1, 1; mapPos 21, 13
+Message : Not loading NPC: roomPos 2, 2; mapPos 36, 12
+Message : Not loading NPC: roomPos 2, 2; mapPos 43, 18
+Message : Not loading NPC: roomPos 2, 2; mapPos 38, 16
+Message : Cutscene: 0
+Message : Cutscene: 0
+Message : Deleting: room
+Message : Deleting: Reticle
+Message : Deleting: NPC
+Message : Deleting: NPC
+Message : Deleting: NPC
+Message : Deleting: NPC
+Message : Deleting: NPC
+Message : Deleting: NPC
+Message : Deleting: Player
+Message : Deleting: Clue
+Message : Deleting: bullet
+Message : Game End: Player Won
+Message : Game End: Player Won
+Message : Deleting: Cutscene
+Message : Deleting: Cutscene
+Message : Room Loaded: Room_00 (0, 0)
+Message : Spawned Clues
+Message : Clue 0: (3.000000, 3.000000)
+Message : Clue 1: (0.000000, 3.000000)
+Message : Clue 2: (3.000000, 0.000000)
+Message : Clue 3: (1.000000, 1.000000)
+Message : Clue 4: (0.000000, 1.000000)
+Message : Clue 5: (3.000000, 1.000000)
+Message : Chosen Murderer: Cyan 1
+Message : Room Loaded: Room_00 (0, 0)
+Message : Spawned Clues
+Message : Clue 0: (3.000000, 1.000000)
+Message : Clue 1: (0.000000, 0.000000)
+Message : Clue 2: (2.000000, 3.000000)
+Message : Clue 3: (0.000000, 3.000000)
+Message : Clue 4: (1.000000, 2.000000)
+Message : Clue 5: (3.000000, 0.000000)
+Message : Chosen Murderer: Yellow 1
+Message : Deleting: GameEnd
+Message : Deleting: GameEnd
+Message : Deleting: room
+Message : Deleting: Reticle
+Message : Deleting: NPC
+Message : Deleting: NPC
+Message : Deleting: NPC
+Message : Deleting: NPC
+Message : Deleting: NPC
+Message : Deleting: NPC
+Message : Deleting: Player
+Message : Deleting: Clue
+Message : Game End: Player Quit
+Message : Deleting: room
+Message : Deleting: Reticle
+Message : Deleting: NPC
+Message : Deleting: NPC
+Message : Deleting: NPC
+Message : Deleting: NPC
+Message : Deleting: NPC
+Message : Deleting: NPC
+Message : Deleting: Player
+Message : Deleting: Clue
+Message : Game End: Player Quit
+Message : Deleting: GameEnd
