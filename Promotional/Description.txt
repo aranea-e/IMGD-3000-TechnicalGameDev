@@ -1,6 +1,6 @@
 Bingus
 by Ian Perry and Devin Mihaichuk
 
-Bingus is an ASCII based single player social deduction game where the player works to try and find which of the 6 residents in the house is a murderer and shoot them before they can cause any more harm. The player can do this by observing the residents in where they have gone, where bodies are left behind, looking for various clues spread across the house, or even by being in a room alone with them tempting them to try and kill.
+Bingus is an ASCII based single player social deduction game where the player works to try and find which of the 6 residents in the house is a murderer, and shoot them before they can cause any more harm. The player can do this by observing the residents, where they have gone, where bodies are left behind, looking for various clues spread across the house, or even by being in a room alone with them tempting them to try and kill.
 
 How many can you save?
